@@ -19,7 +19,26 @@ namespace Proyecto_escuela_informatica
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            labelUsuario.Text = GlobalVariables.Usuario;
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelFechaHora.Text = Convert.ToString(DateTime.Now.ToString("G"));
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            Login form = new Login();
+            this.Hide();
+            form.Show();
+        }
+
+        private void BtnGrupo_Click(object sender, EventArgs e)
+        {
+            Grupo form = new Grupo();
+            this.Hide();
+            form.Show();
         }
     }
 }

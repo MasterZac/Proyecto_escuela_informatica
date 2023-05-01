@@ -12,10 +12,10 @@ using System.Diagnostics;
 
 namespace Proyecto_escuela_informatica
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -37,6 +37,8 @@ namespace Proyecto_escuela_informatica
             string password = TxtConstraseña.Text;
             string cadenaConexion = "data source = " + servidor + ";" + " initial catalog = " + bd + ";" + " user id = " + usuario + ";" + " password = " + password + ";";
             conexion.ConnectionString = cadenaConexion;
+            GlobalVariables.Usuario = TxtUsuario.Text;
+            GlobalVariables.Contraseña = TxtConstraseña.Text;
 
             try
             {
