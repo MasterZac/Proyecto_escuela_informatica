@@ -73,9 +73,9 @@ namespace Proyecto_escuela_informatica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap itsco2 {
+        internal static System.Drawing.Bitmap LOGO_VERTICAL_TECNM {
             get {
-                object obj = ResourceManager.GetObject("itsco2", resourceCulture);
+                object obj = ResourceManager.GetObject("LOGO-VERTICAL-TECNM", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace Proyecto_escuela_informatica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LOGO_VERTICAL_TECNM {
+        internal static System.Drawing.Bitmap nube {
             get {
-                object obj = ResourceManager.GetObject("LOGO-VERTICAL-TECNM", resourceCulture);
+                object obj = ResourceManager.GetObject("nube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap operando {
+            get {
+                object obj = ResourceManager.GetObject("operando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sistema_operativo {
+            get {
+                object obj = ResourceManager.GetObject("sistema-operativo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
