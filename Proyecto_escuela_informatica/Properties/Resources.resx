@@ -127,6 +127,15 @@
   <data name="sistema-operativo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sistema-operativo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="regreso (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\regreso (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boton-actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton-actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sincronizar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sincronizar (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-proyecto-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-proyecto-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,8 +157,17 @@
   <data name="icons8-gente-trabajando-juntos-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-gente-trabajando-juntos-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deshacer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deshacer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-profesor-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-profesor-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-cerrar-ventana-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cerrar-ventana-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-archivo-de-verificación-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-archivo-de-verificación-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,10 +178,13 @@
   <data name="LOGO-VERTICAL-TECNM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO-VERTICAL-TECNM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sincronizar (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sincronizar (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="operando" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\operando.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-cerrar-ventana-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-cerrar-ventana-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

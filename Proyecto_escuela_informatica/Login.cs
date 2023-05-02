@@ -29,34 +29,31 @@ namespace Proyecto_escuela_informatica
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool VerifyConection = true;
 
-            string servidor = "DESKTOP-T35PUJQ\\SQLEXPRESS";
-            string bd = "Escuela_informatica";
+            bool verifiConnection = true;
             string usuario = TxtUsuario.Text;
             string password = TxtConstraseña.Text;
-            string cadenaConexion = "data source = " + servidor + ";" + " initial catalog = " + bd + ";" + " user id = " + usuario + ";" + " password = " + password + ";";
-            conexion.ConnectionString = cadenaConexion;
-            GlobalVariables.Usuario = TxtUsuario.Text;
-            GlobalVariables.Contraseña = TxtConstraseña.Text;
-
+            GlobalVariables.Usuario = usuario;
+            GlobalVariables.Contraseña = password;
+            ConexionDB conexionDB = new ConexionDB(usuario, password);
             try
             {
-                conexion.Open();
-                VerifyConection = true;
-                MessageBox.Show("Usuario conectado");
+                SqlConnection conexion = conexionDB.AbrirConexion();
+                MessageBox.Show("Datos correctos");
+                verifiConnection = true;
             }
-            catch (Exception)
+            catch (SqlException)
             {
-                MessageBox.Show("Usuario o contraseña incorrecta!");
-                VerifyConection=false;
+                verifiConnection=false;
+                MessageBox.Show("¡Usuario o contraseña incorrecta!");
+                
             }
             finally
             {
-                conexion.Close();
+                conexionDB.CerrarConexion(conexion);
             }
 
-            if (VerifyConection == true)
+            if (verifiConnection == true)
             {
                 Menu form = new Menu();
                 this.Hide();

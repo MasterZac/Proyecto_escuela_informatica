@@ -31,10 +31,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.TxtNumeroGrupo = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNumeroComponentes = new System.Windows.Forms.NumericUpDown();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BtnSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cboEstatus = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,7 +57,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(157, 126);
+            this.label1.Location = new System.Drawing.Point(100, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(203, 26);
             this.label1.TabIndex = 0;
@@ -53,7 +68,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(257, 166);
+            this.label2.Location = new System.Drawing.Point(200, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 26);
             this.label2.TabIndex = 1;
@@ -64,35 +79,165 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(75, 208);
+            this.label3.Location = new System.Drawing.Point(18, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(285, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Numero de componentes:";
             // 
-            // textBox1
+            // TxtNumeroGrupo
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(387, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 32);
-            this.textBox1.TabIndex = 3;
+            this.TxtNumeroGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNumeroGrupo.Location = new System.Drawing.Point(330, 54);
+            this.TxtNumeroGrupo.Name = "TxtNumeroGrupo";
+            this.TxtNumeroGrupo.Size = new System.Drawing.Size(235, 32);
+            this.TxtNumeroGrupo.TabIndex = 3;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(387, 168);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 32);
-            this.textBox2.TabIndex = 4;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(330, 94);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(235, 32);
+            this.txtNombre.TabIndex = 4;
             // 
-            // numericUpDown1
+            // txtNumeroComponentes
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(387, 211);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(235, 32);
-            this.numericUpDown1.TabIndex = 7;
+            this.txtNumeroComponentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroComponentes.Location = new System.Drawing.Point(330, 137);
+            this.txtNumeroComponentes.Name = "txtNumeroComponentes";
+            this.txtNumeroComponentes.Size = new System.Drawing.Size(235, 32);
+            this.txtNumeroComponentes.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(125, 338);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(661, 188);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cboEstatus);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.TxtNumeroGrupo);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.txtNumeroComponentes);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Menu;
+            this.groupBox1.Location = new System.Drawing.Point(127, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(640, 235);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos del grupo ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(121, 298);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 20);
+            this.label4.TabIndex = 15;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Numero_grupo",
+            "Nombre",
+            "Numero_componentes"});
+            this.comboBox1.Location = new System.Drawing.Point(127, 304);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 28);
+            this.comboBox1.TabIndex = 16;
+            this.comboBox1.Text = "Consultar Por:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(304, 306);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(271, 26);
+            this.txtBuscar.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(200, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 26);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Estatus:";
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__1_;
+            this.BtnSalir.Location = new System.Drawing.Point(947, 471);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(95, 69);
+            this.BtnSalir.TabIndex = 14;
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_grupos_de_usuarios_48;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnEliminar.Location = new System.Drawing.Point(915, 78);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(95, 72);
+            this.btnEliminar.TabIndex = 11;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::Proyecto_escuela_informatica.Properties.Resources.actualizar;
+            this.btnActualizar.Location = new System.Drawing.Point(782, 173);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(95, 64);
+            this.btnActualizar.TabIndex = 10;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::Proyecto_escuela_informatica.Properties.Resources.agregar;
+            this.btnAgregar.Location = new System.Drawing.Point(782, 77);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(95, 73);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cboEstatus
+            // 
+            this.cboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEstatus.FormattingEnabled = true;
+            this.cboEstatus.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cboEstatus.Location = new System.Drawing.Point(330, 180);
+            this.cboEstatus.Name = "cboEstatus";
+            this.cboEstatus.Size = new System.Drawing.Size(235, 34);
+            this.cboEstatus.TabIndex = 10;
+            this.cboEstatus.Text = "Elige el estatus";
             // 
             // Grupo
             // 
@@ -101,16 +246,24 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1054, 552);
             this.ControlBox = false;
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.BtnSalir);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnAgregar);
             this.Name = "Grupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.Load += new System.EventHandler(this.Grupo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,8 +274,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox TxtNumeroGrupo;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.NumericUpDown txtNumeroComponentes;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BtnSalir;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboEstatus;
     }
 }
