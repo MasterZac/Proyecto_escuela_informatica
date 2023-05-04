@@ -34,8 +34,9 @@
             this.TxtNumeroGrupo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtNumeroComponentes = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvGrupo = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,9 +46,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtEstatus = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,15 +109,15 @@
             this.txtNumeroComponentes.Size = new System.Drawing.Size(235, 32);
             this.txtNumeroComponentes.TabIndex = 7;
             // 
-            // dataGridView1
+            // dgvGrupo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(125, 338);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(661, 188);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrupo.Location = new System.Drawing.Point(125, 338);
+            this.dgvGrupo.Name = "dgvGrupo";
+            this.dgvGrupo.RowHeadersWidth = 62;
+            this.dgvGrupo.RowTemplate.Height = 28;
+            this.dgvGrupo.Size = new System.Drawing.Size(661, 188);
+            this.dgvGrupo.TabIndex = 12;
             // 
             // groupBox1
             // 
@@ -138,6 +138,14 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del grupo ";
+            // 
+            // txtEstatus
+            // 
+            this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEstatus.Location = new System.Drawing.Point(330, 184);
+            this.txtEstatus.Name = "txtEstatus";
+            this.txtEstatus.Size = new System.Drawing.Size(235, 32);
+            this.txtEstatus.TabIndex = 10;
             // 
             // label5
             // 
@@ -216,6 +224,7 @@
             this.btnActualizar.Size = new System.Drawing.Size(95, 64);
             this.btnActualizar.TabIndex = 10;
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnAgregar
             // 
@@ -226,14 +235,6 @@
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // txtEstatus
-            // 
-            this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstatus.Location = new System.Drawing.Point(330, 184);
-            this.txtEstatus.Name = "txtEstatus";
-            this.txtEstatus.Size = new System.Drawing.Size(235, 32);
-            this.txtEstatus.TabIndex = 10;
             // 
             // Grupo
             // 
@@ -247,7 +248,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvGrupo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
@@ -256,7 +257,7 @@
             this.Text = "Grupo";
             this.Load += new System.EventHandler(this.Grupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -277,7 +278,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvGrupo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Label label4;

@@ -18,6 +18,7 @@ namespace Proyecto_escuela_informatica
             InitializeComponent();
         }
         ConexionDB conexionDB = new ConexionDB(GlobalVariables.Usuario, GlobalVariables.Contraseña);
+        CargarDatos cargar = new CargarDatos();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
        
@@ -30,7 +31,7 @@ namespace Proyecto_escuela_informatica
 
         private void Grupo_Load(object sender, EventArgs e)
         {
-
+            cargar.DgvGrupo(dgvGrupo);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace Proyecto_escuela_informatica
         public bool ValidarCampos()
         {
             bool aux = false;
-            if (TxtNumeroGrupo.Text == "" || txtNombre.Text == "" || txtNumeroComponentes.Value == 0 || cboEstatus.Text == "")
+            if (TxtNumeroGrupo.Text == "" || txtNombre.Text == "" || txtNumeroComponentes.Value == 0 || txtEstatus.Text == "")
             {
                 aux = true;
             }
@@ -66,6 +67,36 @@ namespace Proyecto_escuela_informatica
                     aux = true;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+            return aux;
+        }
+
+        public bool ValidarActualizacion()
+        {
+            bool aux = false;
+            SqlConnection conexion = conexionDB.AbrirConexion();
+            try
+            {
+                cmd = new SqlCommand("ValidaActuaGrupo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter Numero_grupo = new SqlParameter("@Numero_grupo", SqlDbType.Char, 10);
+                Numero_grupo.Value = TxtNumeroGrupo.Text;
+                cmd.Parameters.Add(Numero_grupo);
+
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    aux = true;
+                }
             }
             catch (Exception ex)
             {
@@ -145,6 +176,15 @@ namespace Proyecto_escuela_informatica
 
             if (ConsultarExistencia())
             {
+                if (txtEstatus.Text == "Activo")
+                {
+                    txtEstatus.Text = "Inactivo";
+                }
+                else
+                {
+                    txtEstatus.Text = "Activo";
+                }
+
                 SqlConnection conexion = conexionDB.AbrirConexion();
                 try
                 {
@@ -164,6 +204,7 @@ namespace Proyecto_escuela_informatica
 
                     cmd.ExecuteNonQuery();
                     Limpiar();
+                    MessageBox.Show("Grupo " + txtEstatus.Text);
                 }
                 catch (Exception ex) 
                 {
@@ -175,7 +216,55 @@ namespace Proyecto_escuela_informatica
                     conexionDB.CerrarConexion(conexion);
                 }
             }
+        }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                MessageBox.Show("Existen campos vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ValidarActualizacion())
+            {
+                MessageBox.Show("No se realizo ninguna actualizacion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ConsultarExistencia())
+            {
+                SqlConnection conexion = conexionDB.AbrirConexion();
+                try
+                {
+                    cmd = new SqlCommand("UpdateGrupo", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter Numero_grupo = new SqlParameter("@Numero_grupo", SqlDbType.Char, 10);
+                    Numero_grupo.Value = TxtNumeroGrupo.Text;
+                    cmd.Parameters.Add(Numero_grupo);
+
+                    SqlParameter Nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 100);
+                    Nombre.Value = txtNombre.Text;
+                    cmd.Parameters.Add(Nombre);
+
+                    SqlParameter Numero_componentes = new SqlParameter("@Numero_componentes", SqlDbType.Int);
+                    Numero_componentes.Value = txtNumeroComponentes.Value;
+                    cmd.Parameters.Add(Numero_componentes);
+
+                    cmd.ExecuteNonQuery();
+                    Limpiar();
+                    MessageBox.Show("Grupo actualizado");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conexionDB.CerrarConexion(conexion);
+                }
+            }
         }
     }
 }
