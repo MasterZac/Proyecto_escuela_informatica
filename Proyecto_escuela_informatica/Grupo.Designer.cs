@@ -38,11 +38,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboConsultaPor = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -87,6 +88,7 @@
             // 
             // TxtNumeroGrupo
             // 
+            this.TxtNumeroGrupo.AllowDrop = true;
             this.TxtNumeroGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNumeroGrupo.Location = new System.Drawing.Point(330, 54);
             this.TxtNumeroGrupo.Name = "TxtNumeroGrupo";
@@ -111,6 +113,10 @@
             // 
             // dgvGrupo
             // 
+            this.dgvGrupo.AllowUserToAddRows = false;
+            this.dgvGrupo.AllowUserToDeleteRows = false;
+            this.dgvGrupo.AllowUserToResizeColumns = false;
+            this.dgvGrupo.AllowUserToResizeRows = false;
             this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrupo.Location = new System.Drawing.Point(125, 338);
             this.dgvGrupo.Name = "dgvGrupo";
@@ -118,6 +124,7 @@
             this.dgvGrupo.RowTemplate.Height = 28;
             this.dgvGrupo.Size = new System.Drawing.Size(661, 188);
             this.dgvGrupo.TabIndex = 12;
+            this.dgvGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupo_CellClick);
             // 
             // groupBox1
             // 
@@ -141,6 +148,7 @@
             // 
             // txtEstatus
             // 
+            this.txtEstatus.Enabled = false;
             this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstatus.Location = new System.Drawing.Point(330, 184);
             this.txtEstatus.Name = "txtEstatus";
@@ -158,6 +166,57 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Estatus:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(121, 298);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 20);
+            this.label4.TabIndex = 15;
+            // 
+            // cboConsultaPor
+            // 
+            this.cboConsultaPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboConsultaPor.FormattingEnabled = true;
+            this.cboConsultaPor.Items.AddRange(new object[] {
+            "Numero_grupo",
+            "Nombre",
+            "Numero_componentes"});
+            this.cboConsultaPor.Location = new System.Drawing.Point(127, 298);
+            this.cboConsultaPor.Name = "cboConsultaPor";
+            this.cboConsultaPor.Size = new System.Drawing.Size(171, 33);
+            this.cboConsultaPor.TabIndex = 16;
+            this.cboConsultaPor.Text = "Consultar Por:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(304, 300);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(271, 30);
+            this.txtBuscar.TabIndex = 17;
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Image = global::Proyecto_escuela_informatica.Properties.Resources.limpieza_de_datos;
+            this.btnLimpiar.Location = new System.Drawing.Point(915, 173);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(79, 64);
+            this.btnLimpiar.TabIndex = 18;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // BtnSalir
+            // 
+            this.BtnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
+            this.BtnSalir.Location = new System.Drawing.Point(947, 471);
+            this.BtnSalir.Name = "BtnSalir";
+            this.BtnSalir.Size = new System.Drawing.Size(95, 69);
+            this.BtnSalir.TabIndex = 14;
+            this.BtnSalir.UseVisualStyleBackColor = true;
+            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_grupos_de_usuarios_48;
@@ -167,44 +226,6 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(121, 298);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 20);
-            this.label4.TabIndex = 15;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Numero_grupo",
-            "Nombre",
-            "Numero_componentes"});
-            this.comboBox1.Location = new System.Drawing.Point(127, 304);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 28);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.Text = "Consultar Por:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(304, 306);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(271, 26);
-            this.txtBuscar.TabIndex = 17;
-            // 
-            // BtnSalir
-            // 
-            this.BtnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__1_;
-            this.BtnSalir.Location = new System.Drawing.Point(947, 471);
-            this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(95, 69);
-            this.BtnSalir.TabIndex = 14;
-            this.BtnSalir.UseVisualStyleBackColor = true;
-            this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // btnEliminar
             // 
@@ -228,7 +249,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Image = global::Proyecto_escuela_informatica.Properties.Resources.agregar;
+            this.btnAgregar.Image = global::Proyecto_escuela_informatica.Properties.Resources.agregar__1_;
             this.btnAgregar.Location = new System.Drawing.Point(782, 77);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(95, 73);
@@ -243,8 +264,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1054, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboConsultaPor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.groupBox1);
@@ -282,9 +304,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnSalir;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboConsultaPor;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEstatus;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

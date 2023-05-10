@@ -83,6 +83,16 @@ namespace Proyecto_escuela_informatica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("agregar (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boton_actualizar {
             get {
                 object obj = ResourceManager.GetObject("boton-actualizar", resourceCulture);
@@ -223,6 +233,16 @@ namespace Proyecto_escuela_informatica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap limpieza_de_datos {
+            get {
+                object obj = ResourceManager.GetObject("limpieza-de-datos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO_VERTICAL_TECNM {
             get {
                 object obj = ResourceManager.GetObject("LOGO-VERTICAL-TECNM", resourceCulture);
@@ -256,6 +276,16 @@ namespace Proyecto_escuela_informatica.Properties {
         internal static System.Drawing.Bitmap regreso__1_ {
             get {
                 object obj = ResourceManager.GetObject("regreso (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regreso__2_ {
+            get {
+                object obj = ResourceManager.GetObject("regreso (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

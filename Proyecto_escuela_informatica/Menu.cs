@@ -40,5 +40,12 @@ namespace Proyecto_escuela_informatica
             this.Hide();
             form.Show();
         }
+
+        private void BtnProfesor_Click(object sender, EventArgs e)
+        {
+            Profesor form = new Profesor();
+            this.Hide();
+            form.Show();
+        }
     }
 }

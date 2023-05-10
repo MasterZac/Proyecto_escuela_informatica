@@ -13,14 +13,35 @@ namespace Proyecto_escuela_informatica
     {
         ConexionDB conexionDB = new ConexionDB(GlobalVariables.Usuario, GlobalVariables.Contraseña);
         SqlDataAdapter da;
+        SqlConnection conexion = new SqlConnection();
         DataTable dt;
         
         public void DgvGrupo(DataGridView dgv)
         {
-            SqlConnection conexion = conexionDB.AbrirConexion();
+            conexion = conexionDB.AbrirConexion();
             try
             {
                 da = new SqlDataAdapter("cargarGrupo", conexion);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+        }
+
+        public void DgvProfesor(DataGridView dgv)
+        {
+            conexion = conexionDB.AbrirConexion();
+            try
+            {
+                da = new SqlDataAdapter("cargarProfesor", conexion);
                 dt = new DataTable();
                 da.Fill(dt);
                 dgv.DataSource = dt;

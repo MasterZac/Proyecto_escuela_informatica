@@ -19,10 +19,11 @@ namespace Proyecto_escuela_informatica
         }
         ConexionDB conexionDB = new ConexionDB(GlobalVariables.Usuario, GlobalVariables.Contraseña);
         CargarDatos cargar = new CargarDatos();
+        SqlConnection conexion = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
+        SqlDataAdapter da;
         SqlDataReader dr;
-       
-
+        DataTable dt;
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -55,9 +56,9 @@ namespace Proyecto_escuela_informatica
         {
             
             bool aux = false;
-            SqlConnection conexion = conexionDB.AbrirConexion();
             try
             {
+                conexion = conexionDB.AbrirConexion();
                 string query = "Select * From Grupo Where Numero_grupo = ('" + TxtNumeroGrupo.Text + "') ";
                 cmd = new SqlCommand(query, conexion);
                 cmd.CommandType = CommandType.Text;
@@ -82,15 +83,23 @@ namespace Proyecto_escuela_informatica
         public bool ValidarActualizacion()
         {
             bool aux = false;
-            SqlConnection conexion = conexionDB.AbrirConexion();
             try
             {
+                conexion = conexionDB.AbrirConexion();
                 cmd = new SqlCommand("ValidaActuaGrupo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter Numero_grupo = new SqlParameter("@Numero_grupo", SqlDbType.Char, 10);
                 Numero_grupo.Value = TxtNumeroGrupo.Text;
                 cmd.Parameters.Add(Numero_grupo);
+
+                SqlParameter Nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 100);
+                Nombre.Value = txtNombre.Text;
+                cmd.Parameters.Add(Nombre);
+
+                SqlParameter Numero_componentes = new SqlParameter("@Numero_componentes", SqlDbType.Int);
+                Numero_componentes.Value = txtNumeroComponentes.Value;
+                cmd.Parameters.Add(Numero_componentes);
 
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -118,6 +127,27 @@ namespace Proyecto_escuela_informatica
             TxtNumeroGrupo.Focus();
         }
 
+        public void Consultas()
+        {
+            try
+            {
+                conexion = conexionDB.AbrirConexion();
+                string query = "Select * From Grupo Where (" + cboConsultaPor.Text + ") Like ('" + txtBuscar.Text + "%')";
+                da = new SqlDataAdapter(query, conexion);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgvGrupo.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
@@ -132,9 +162,9 @@ namespace Proyecto_escuela_informatica
                 return;
             }
 
-            SqlConnection conexion = conexionDB.AbrirConexion();
             try
             {
+                conexion = conexionDB.AbrirConexion();
                 cmd = new SqlCommand("AddGrupo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -153,6 +183,7 @@ namespace Proyecto_escuela_informatica
                 cmd.ExecuteNonQuery();
                 Limpiar();
                 MessageBox.Show("¡Grupo agregado!");
+                cargar.DgvGrupo(dgvGrupo);
 
             }
             catch (Exception ex)
@@ -163,11 +194,11 @@ namespace Proyecto_escuela_informatica
             {
                 conexionDB.CerrarConexion(conexion);
             }
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            bool aux = true;
             if (TxtNumeroGrupo.Text == "")
             {
                 MessageBox.Show("Ingrese el Numero del grupo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -178,11 +209,11 @@ namespace Proyecto_escuela_informatica
             {
                 if (txtEstatus.Text == "Activo")
                 {
-                    txtEstatus.Text = "Inactivo";
+                    aux = true;
                 }
                 else
-                {
-                    txtEstatus.Text = "Activo";
+                {  
+                    aux = false;
                 }
 
                 SqlConnection conexion = conexionDB.AbrirConexion();
@@ -195,18 +226,26 @@ namespace Proyecto_escuela_informatica
                     Numero_grupo.Value = TxtNumeroGrupo.Text;
                     cmd.Parameters.Add(Numero_grupo);
 
-                    SqlParameter Estatus = new SqlParameter("@ID_estatus", SqlDbType.Int);
-                    if (txtEstatus.Text == "Activo")
-                        Estatus.Value = 1;
+                    SqlParameter Estatus = new SqlParameter("@Estatus", SqlDbType.VarChar, 50);
+                    if (aux == true)
+                    {
+                        MessageBox.Show("Grupo deshabilitado");
+                        txtEstatus.Text = "Inactivo";
+                    }
                     else
-                        Estatus.Value = 2;
-                    cmd.Parameters.Add(Estatus);
+                    {
+                        MessageBox.Show("Grupo activado");
+                        txtEstatus.Text = "Activo";
+                    }
 
+                    Estatus.Value = txtEstatus.Text;
+                    cmd.Parameters.Add(Estatus);
                     cmd.ExecuteNonQuery();
                     Limpiar();
-                    MessageBox.Show("Grupo " + txtEstatus.Text);
+                    cargar.DgvGrupo(dgvGrupo);
+
                 }
-                catch (Exception ex) 
+                catch (SqlException ex) 
                 {
                     MessageBox.Show(ex.Message);
 
@@ -215,6 +254,11 @@ namespace Proyecto_escuela_informatica
                 {
                     conexionDB.CerrarConexion(conexion);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Grupo no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 
@@ -255,6 +299,7 @@ namespace Proyecto_escuela_informatica
                     cmd.ExecuteNonQuery();
                     Limpiar();
                     MessageBox.Show("Grupo actualizado");
+                    cargar.DgvGrupo(dgvGrupo);
                 }
                 catch(Exception ex)
                 {
@@ -265,6 +310,36 @@ namespace Proyecto_escuela_informatica
                     conexionDB.CerrarConexion(conexion);
                 }
             }
+        }
+
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cboConsultaPor.Text == "")
+            {
+                MessageBox.Show("Elige por que tipo de dato quieres consultar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                Consultas();
+            }
+        }
+
+        private void dgvGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvGrupo.SelectedRows.Count > 0)
+            {
+                TxtNumeroGrupo.Text = dgvGrupo.SelectedCells[0].Value.ToString();
+                txtNombre.Text = dgvGrupo.SelectedCells[1].Value.ToString();
+                txtNumeroComponentes.Value = Convert.ToInt32(dgvGrupo.SelectedCells[2].Value.ToString());
+                txtEstatus.Text = dgvGrupo.SelectedCells[3].Value.ToString();
+                dgvGrupo.ClearSelection();
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

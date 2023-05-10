@@ -38,7 +38,7 @@ namespace Proyecto_escuela_informatica
             ConexionDB conexionDB = new ConexionDB(usuario, password);
             try
             {
-                SqlConnection conexion = conexionDB.AbrirConexion();
+                conexion = conexionDB.AbrirConexion();
                 MessageBox.Show("Datos correctos");
                 verifiConnection = true;
             }
