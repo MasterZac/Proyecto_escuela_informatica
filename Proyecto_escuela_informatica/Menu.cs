@@ -47,5 +47,26 @@ namespace Proyecto_escuela_informatica
             this.Hide();
             form.Show();
         }
+
+        private void BtnTFC_Click(object sender, EventArgs e)
+        {
+            TFC form = new TFC();
+            this.Hide();
+            form.Show();
+        }
+
+        private void BtnTribunal_Click(object sender, EventArgs e)
+        {
+            Tribunal form = new Tribunal();
+            this.Hide();
+            form.Show();
+        }
+
+        private void BtnAlumno_Click(object sender, EventArgs e)
+        {
+            Alumno form = new Alumno();
+            this.Hide();
+            form.Show();
+        }
     }
 }

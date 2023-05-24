@@ -111,6 +111,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(558, 309);
             this.panel1.TabIndex = 7;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -142,6 +143,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Login";
+            this.Opacity = 0.8D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido al sistema de control de TFC";
             this.Load += new System.EventHandler(this.Form1_Load);

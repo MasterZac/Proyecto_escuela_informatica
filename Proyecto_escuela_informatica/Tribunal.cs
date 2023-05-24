@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_escuela_informatica
 {
-    public partial class Profesor : Form
+    public partial class Tribunal : Form
     {
-        public Profesor()
+        public Tribunal()
         {
             InitializeComponent();
         }
@@ -27,17 +26,29 @@ namespace Proyecto_escuela_informatica
         SqlDataReader dr;
         DataTable dt;
 
-        private void Profesor_Load(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            cargar.DgvProfesor(dgvProfesor);
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Menu form = new Menu();
+            this.Hide();
+            form.Show();
+        }
+
+        private void Tribunal_Load(object sender, EventArgs e)
+        {
+            cargar.DgvTribunal(dgvTribunal);
         }
 
         public bool ValidaCampos()
         {
             bool aux = false;
-            if (txtCI.Text == "" || txtNombre.Text == "" || txtDomicilio.Text == "" || txtDomicilio.Text == "")
+            if (txtNumeroTribunal.Text == "" || txtLugarExamen.Text == "" || txtNumeroComponentes.Value == 0)
             {
-                aux = true; 
+                aux = true;
             }
             return aux;
         }
@@ -47,11 +58,11 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Profesor Where (" + cboProfesor.Text + ") like ('" + txtBuscar.Text + "')";
+                string query = "Select * From Tribunal Where (" + cboTribunal.Text + ") Like ('" + txtConsulta.Text + "')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
-                dgvProfesor.DataSource = dt;
+                dgvTribunal.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -69,7 +80,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Profesor Where CI = ('" + txtCI.Text + "') ";
+                string query = "Select * From Tribunal Where Numero_tribunal = ('" + txtNumeroTribunal.Text + "') ";
                 cmd = new SqlCommand(query, conexion);
                 cmd.CommandType = CommandType.Text;
                 dr = cmd.ExecuteReader();
@@ -96,8 +107,8 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Profesor Where CI = ('" + txtCI.Text + "') and Nombre = ('" + txtNombre.Text + "')" +
-                    "and Domicilio = ('" + txtDomicilio.Text + "')";
+                string query = "Select * From Tribunal Where Numero_tribunal = ('" + txtNumeroTribunal.Text + "')" +
+                    "and Lugar_examen = ('" + txtLugarExamen.Text + "') and Numero_componentes = (" + txtNumeroComponentes.Value + ")";
                 cmd = new SqlCommand(query, conexion);
                 cmd.CommandType = CommandType.Text;
                 dr = cmd.ExecuteReader();
@@ -120,49 +131,50 @@ namespace Proyecto_escuela_informatica
 
         public void Limpiar()
         {
-            txtCI.Clear();
-            txtNombre.Clear();
-            txtDomicilio.Clear();
+            txtNumeroTribunal.Clear();
+            txtLugarExamen.Clear();
+            txtNumeroComponentes.Value = 0;
             txtEstatus.Clear();
-            txtCI.Focus();
+            txtNumeroTribunal.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (ValidaCampos())
             {
-                MessageBox.Show("Los campos estan vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Existen campos vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (ConsultaExistencia())
             {
-                MessageBox.Show("Profesor ya existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tribunal no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                cmd = new SqlCommand("AddProfesor", conexion);
+                cmd = new SqlCommand("AddTribunal", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter CI = new SqlParameter("@CI", SqlDbType.VarChar, 5);
-                CI.Value = txtCI.Text;
-                cmd.Parameters.Add(CI);
+                SqlParameter Numero_tribunal = new SqlParameter("@Numero_tribunal", SqlDbType.Char, 5);
+                Numero_tribunal.Value = txtNumeroTribunal.Text.Trim();
+                cmd.Parameters.Add(Numero_tribunal);
 
-                SqlParameter Nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 100);
-                Nombre.Value = txtNombre.Text;
-                cmd.Parameters.Add(Nombre);
+                SqlParameter Lugar_examen = new SqlParameter("@Lugar_examen", SqlDbType.VarChar, 100);
+                Lugar_examen.Value = txtLugarExamen.Text.Trim();
+                cmd.Parameters.Add(Lugar_examen);
 
-                SqlParameter Domicilio = new SqlParameter("@Domicilio", SqlDbType.VarChar, 100);
-                Domicilio.Value = txtDomicilio.Text;
-                cmd.Parameters.Add(Domicilio);
+                SqlParameter Numero_componentes = new SqlParameter("@Numero_componentes", SqlDbType.Int);
+                Numero_componentes.Value = txtNumeroComponentes.Value;
+                cmd.Parameters.Add(Numero_componentes);
 
                 cmd.ExecuteNonQuery();
                 Limpiar();
-                cargar.DgvProfesor(dgvProfesor);
-                MessageBox.Show("Profesor Agregado!");
+                cargar.DgvTribunal(dgvTribunal);
+                MessageBox.Show("Tribunal agregado");
+
             }
             catch (Exception ex)
             {
@@ -172,26 +184,20 @@ namespace Proyecto_escuela_informatica
             {
                 conexionDB.CerrarConexion(conexion);
             }
-        }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Menu form = new Menu();
-            this.Hide();
-            form.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (txtCI.Text == "")
+            if (txtNumeroTribunal.Text == "")
             {
-                MessageBox.Show("Ingresa el CI del profesor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese el numero de tribunal", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             if (ConsultaExistencia())
             {
-
                 if (txtEstatus.Text == "Activo")
                 {
                     txtEstatus.Text = "Inactivo";
@@ -204,37 +210,30 @@ namespace Proyecto_escuela_informatica
                 try
                 {
                     conexion = conexionDB.AbrirConexion();
-                    cmd = new SqlCommand("DeleteProfesor", conexion);
+                    cmd = new SqlCommand("DeleteTribunal", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlParameter CI = new SqlParameter("@CI", SqlDbType.VarChar, 5);
-                    CI.Value = txtCI.Text;
-                    cmd.Parameters.Add(CI);
+                    SqlParameter Numero_tribunal = new SqlParameter("@Numero_tribunal", SqlDbType.Char, 5);
+                    Numero_tribunal.Value = txtNumeroTribunal.Text.Trim();
+                    cmd.Parameters.Add(Numero_tribunal);
 
                     SqlParameter Estatus = new SqlParameter("@Estatus", SqlDbType.VarChar, 50);
                     Estatus.Value = txtEstatus.Text;
                     cmd.Parameters.Add(Estatus);
 
                     cmd.ExecuteNonQuery();
-                    cargar.DgvProfesor(dgvProfesor);
                     Limpiar();
-                    MessageBox.Show("Profesor habilitado y/o deshabilitado");
-
+                    cargar.DgvTribunal(dgvTribunal);
+                    MessageBox.Show("Tribunal habilitado/deshabilitado");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    
                 }
                 finally
                 {
                     conexionDB.CerrarConexion(conexion);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Profesor no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
         }
 
@@ -245,36 +244,37 @@ namespace Proyecto_escuela_informatica
                 MessageBox.Show("Existen campos vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             if (ValidaActualizacion())
             {
                 MessageBox.Show("No realizo ningun cambio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             if (ConsultaExistencia())
             {
-                
                 try
                 {
                     conexion = conexionDB.AbrirConexion();
-                    cmd = new SqlCommand("UpdateProfesor", conexion);
+                    cmd = new SqlCommand("UpdateTribunal", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlParameter CI = new SqlParameter("@CI", SqlDbType.VarChar, 5);
-                    CI.Value = txtCI.Text;
-                    cmd.Parameters.Add(CI);
+                    SqlParameter Numero_tribunal = new SqlParameter("@Numero_tribunal", SqlDbType.Char, 5);
+                    Numero_tribunal.Value = txtNumeroTribunal.Text.Trim();
+                    cmd.Parameters.Add(Numero_tribunal);
 
-                    SqlParameter Nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 100);
-                    Nombre.Value = txtNombre.Text;
-                    cmd.Parameters.Add(Nombre);
+                    SqlParameter Lugar_examen = new SqlParameter("@Lugar_examen", SqlDbType.VarChar, 100);
+                    Lugar_examen.Value = txtLugarExamen.Text.Trim();
+                    cmd.Parameters.Add(Lugar_examen);
 
-                    SqlParameter Domicilio = new SqlParameter("@Domicilio", SqlDbType.VarChar, 100);
-                    Domicilio.Value = txtDomicilio.Text;
-                    cmd.Parameters.Add(Domicilio);
+                    SqlParameter Numero_componentes = new SqlParameter("@Numero_componentes", SqlDbType.Int);
+                    Numero_componentes.Value = txtNumeroComponentes.Value;
+                    cmd.Parameters.Add(Numero_componentes);
 
                     cmd.ExecuteNonQuery();
                     Limpiar();
-                    cargar.DgvProfesor(dgvProfesor);
-                    MessageBox.Show("Profesor Actualizado!");
+                    cargar.DgvTribunal(dgvTribunal);
+                    MessageBox.Show("Tribunal agregado");
                 }
                 catch (Exception ex)
                 {
@@ -287,7 +287,7 @@ namespace Proyecto_escuela_informatica
             }
             else
             {
-                MessageBox.Show("Profesor no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tribunal no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -297,29 +297,26 @@ namespace Proyecto_escuela_informatica
             Limpiar();
         }
 
-        private void dgvProfesor_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTribunal_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvProfesor.SelectedRows.Count > 0)
+            if (dgvTribunal.SelectedRows.Count > 0)
             {
-                txtCI.Text = dgvProfesor.SelectedCells[0].Value.ToString();
-                txtNombre.Text = dgvProfesor.SelectedCells[1].Value.ToString();
-                txtDomicilio.Text = dgvProfesor.SelectedCells[2].Value.ToString();
-                txtEstatus.Text = dgvProfesor.SelectedCells[3].Value.ToString();
-                dgvProfesor.ClearSelection();
+                txtNumeroTribunal.Text = dgvTribunal.SelectedCells[0].Value.ToString();
+                txtLugarExamen.Text = dgvTribunal.SelectedCells[1].Value.ToString();
+                txtNumeroComponentes.Value = Convert.ToInt32(dgvTribunal.SelectedCells[2].Value.ToString());
+                txtEstatus.Text = dgvTribunal.SelectedCells[3].Value.ToString();
+                dgvTribunal.ClearSelection();
             }
         }
 
-        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        private void txtConsulta_Click(object sender, EventArgs e)
         {
-            if (cboProfesor.SelectedIndex == -1)
-            {
-                MessageBox.Show("Elige por que tipo de dato quieres consultas", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-                Consultas();
-            }
+            
+        }
+
+        private void txtConsulta_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

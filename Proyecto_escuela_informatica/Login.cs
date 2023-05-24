@@ -65,5 +65,10 @@ namespace Proyecto_escuela_informatica
         {
             Application.Exit();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

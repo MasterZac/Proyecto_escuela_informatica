@@ -150,6 +150,7 @@
             this.BtnTribunal.TabIndex = 5;
             this.BtnTribunal.Text = "TRIBUNAL";
             this.BtnTribunal.UseVisualStyleBackColor = true;
+            this.BtnTribunal.Click += new System.EventHandler(this.BtnTribunal_Click);
             // 
             // BtnTFC
             // 
@@ -165,6 +166,7 @@
             this.BtnTFC.TabIndex = 4;
             this.BtnTFC.Text = "TFC";
             this.BtnTFC.UseVisualStyleBackColor = true;
+            this.BtnTFC.Click += new System.EventHandler(this.BtnTFC_Click);
             // 
             // BtnGrupo
             // 
@@ -196,6 +198,7 @@
             this.BtnAlumno.TabIndex = 2;
             this.BtnAlumno.Text = "ALUMNO";
             this.BtnAlumno.UseVisualStyleBackColor = true;
+            this.BtnAlumno.Click += new System.EventHandler(this.BtnAlumno_Click);
             // 
             // BtnProfesor
             // 
@@ -231,7 +234,7 @@
             // 
             this.labelFechaHora.AutoSize = true;
             this.labelFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaHora.ForeColor = System.Drawing.SystemColors.Menu;
+            this.labelFechaHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.labelFechaHora.Location = new System.Drawing.Point(562, 27);
             this.labelFechaHora.Name = "labelFechaHora";
             this.labelFechaHora.Size = new System.Drawing.Size(164, 25);
@@ -253,7 +256,7 @@
             // 
             this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.ForeColor = System.Drawing.SystemColors.Menu;
+            this.labelUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.labelUsuario.Location = new System.Drawing.Point(164, 21);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(132, 25);

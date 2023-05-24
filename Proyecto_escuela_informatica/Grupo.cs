@@ -181,10 +181,7 @@ namespace Proyecto_escuela_informatica
                 cmd.Parameters.Add(Numero_componentes);
 
                 cmd.ExecuteNonQuery();
-                Limpiar();
-                MessageBox.Show("¡Grupo agregado!");
-                cargar.DgvGrupo(dgvGrupo);
-
+                
             }
             catch (Exception ex)
             {
@@ -192,13 +189,16 @@ namespace Proyecto_escuela_informatica
             }
             finally
             {
+                Limpiar();
+                MessageBox.Show("¡Grupo agregado!");
+                cargar.DgvGrupo(dgvGrupo);
                 conexionDB.CerrarConexion(conexion);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            bool aux = true;
+            
             if (TxtNumeroGrupo.Text == "")
             {
                 MessageBox.Show("Ingrese el Numero del grupo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -209,14 +209,14 @@ namespace Proyecto_escuela_informatica
             {
                 if (txtEstatus.Text == "Activo")
                 {
-                    aux = true;
+                    txtEstatus.Text = "Inactivo";
                 }
                 else
-                {  
-                    aux = false;
+                {
+                    txtEstatus.Text = "Activo";
                 }
 
-                SqlConnection conexion = conexionDB.AbrirConexion();
+                conexion = conexionDB.AbrirConexion();
                 try
                 {
                     cmd = new SqlCommand("DeleteGrupo", conexion);
@@ -227,22 +227,13 @@ namespace Proyecto_escuela_informatica
                     cmd.Parameters.Add(Numero_grupo);
 
                     SqlParameter Estatus = new SqlParameter("@Estatus", SqlDbType.VarChar, 50);
-                    if (aux == true)
-                    {
-                        MessageBox.Show("Grupo deshabilitado");
-                        txtEstatus.Text = "Inactivo";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Grupo activado");
-                        txtEstatus.Text = "Activo";
-                    }
-
                     Estatus.Value = txtEstatus.Text;
                     cmd.Parameters.Add(Estatus);
+
                     cmd.ExecuteNonQuery();
-                    Limpiar();
                     cargar.DgvGrupo(dgvGrupo);
+                    Limpiar();
+                    MessageBox.Show("Grupo habilitado y/o Deshabilitado");
 
                 }
                 catch (SqlException ex) 
@@ -278,7 +269,7 @@ namespace Proyecto_escuela_informatica
 
             if (ConsultarExistencia())
             {
-                SqlConnection conexion = conexionDB.AbrirConexion();
+                conexion = conexionDB.AbrirConexion();
                 try
                 {
                     cmd = new SqlCommand("UpdateGrupo", conexion);
@@ -309,6 +300,11 @@ namespace Proyecto_escuela_informatica
                 {
                     conexionDB.CerrarConexion(conexion);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Grupo no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
         }
 

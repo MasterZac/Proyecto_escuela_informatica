@@ -38,12 +38,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboConsultaPor = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -117,6 +117,8 @@
             this.dgvGrupo.AllowUserToDeleteRows = false;
             this.dgvGrupo.AllowUserToResizeColumns = false;
             this.dgvGrupo.AllowUserToResizeRows = false;
+            this.dgvGrupo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.dgvGrupo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrupo.Location = new System.Drawing.Point(125, 338);
             this.dgvGrupo.Name = "dgvGrupo";
@@ -165,6 +167,16 @@
             this.label5.Size = new System.Drawing.Size(99, 26);
             this.label5.TabIndex = 9;
             this.label5.Text = "Estatus:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_grupos_de_usuarios_48;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label4
             // 
@@ -217,16 +229,6 @@
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_grupos_de_usuarios_48;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_cerrar_ventana_48;
@@ -261,8 +263,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(1054, 552);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(1054, 570);
             this.ControlBox = false;
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBuscar);
@@ -274,6 +276,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnAgregar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Grupo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo";

@@ -38,17 +38,17 @@
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dgvProfesor = new System.Windows.Forms.DataGridView();
+            this.cboProfesor = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,6 +125,7 @@
             this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstatus.Location = new System.Drawing.Point(145, 166);
             this.txtEstatus.Name = "txtEstatus";
+            this.txtEstatus.ReadOnly = true;
             this.txtEstatus.Size = new System.Drawing.Size(209, 32);
             this.txtEstatus.TabIndex = 8;
             // 
@@ -137,10 +138,11 @@
             this.btnActualizar.Size = new System.Drawing.Size(95, 68);
             this.btnActualizar.TabIndex = 7;
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnLimpiar);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.btnActualizar);
@@ -162,37 +164,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del profesor";
             // 
-            // dgv
+            // btnLimpiar
             // 
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(61, 469);
-            this.dgv.Name = "dgv";
-            this.dgv.RowHeadersWidth = 62;
-            this.dgv.RowTemplate.Height = 28;
-            this.dgv.Size = new System.Drawing.Size(798, 195);
-            this.dgv.TabIndex = 10;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "CI",
-            "Nombre",
-            "Estatus"});
-            this.comboBox1.Location = new System.Drawing.Point(129, 400);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 33);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Consulta Por:";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(327, 400);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(231, 30);
-            this.txtBuscar.TabIndex = 12;
+            this.btnLimpiar.Image = global::Proyecto_escuela_informatica.Properties.Resources.limpieza_de_datos;
+            this.btnLimpiar.Location = new System.Drawing.Point(538, 245);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(93, 68);
+            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // pictureBox1
             // 
@@ -213,6 +193,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(92, 68);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -225,19 +206,49 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // dgvProfesor
             // 
-            this.button1.Image = global::Proyecto_escuela_informatica.Properties.Resources.limpieza_de_datos;
-            this.button1.Location = new System.Drawing.Point(538, 245);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 68);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
+            this.dgvProfesor.AllowUserToAddRows = false;
+            this.dgvProfesor.AllowUserToDeleteRows = false;
+            this.dgvProfesor.AllowUserToResizeColumns = false;
+            this.dgvProfesor.AllowUserToResizeRows = false;
+            this.dgvProfesor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.dgvProfesor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfesor.Location = new System.Drawing.Point(61, 469);
+            this.dgvProfesor.Name = "dgvProfesor";
+            this.dgvProfesor.RowHeadersWidth = 62;
+            this.dgvProfesor.RowTemplate.Height = 28;
+            this.dgvProfesor.Size = new System.Drawing.Size(798, 195);
+            this.dgvProfesor.TabIndex = 10;
+            this.dgvProfesor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesor_CellClick);
+            // 
+            // cboProfesor
+            // 
+            this.cboProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProfesor.FormattingEnabled = true;
+            this.cboProfesor.Items.AddRange(new object[] {
+            "CI",
+            "Nombre"});
+            this.cboProfesor.Location = new System.Drawing.Point(125, 430);
+            this.cboProfesor.Name = "cboProfesor";
+            this.cboProfesor.Size = new System.Drawing.Size(169, 33);
+            this.cboProfesor.TabIndex = 11;
+            this.cboProfesor.Text = "Consulta Por:";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(327, 430);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(231, 30);
+            this.txtBuscar.TabIndex = 12;
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
             // btnSalir
             // 
             this.btnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
-            this.btnSalir.Location = new System.Drawing.Point(947, 621);
+            this.btnSalir.Location = new System.Drawing.Point(936, 653);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 43);
             this.btnSalir.TabIndex = 13;
@@ -249,21 +260,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(1034, 676);
+            this.ClientSize = new System.Drawing.Size(1034, 708);
             this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtBuscar);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.cboProfesor);
+            this.Controls.Add(this.dgvProfesor);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Profesor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profesor";
             this.Load += new System.EventHandler(this.Profesor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,11 +294,11 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvProfesor;
+        private System.Windows.Forms.ComboBox cboProfesor;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnSalir;
     }
 }

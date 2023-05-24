@@ -56,5 +56,65 @@ namespace Proyecto_escuela_informatica
             }
         }
 
+        public void DgvTFC(DataGridView dgv)
+        {
+            conexion = conexionDB.AbrirConexion();
+            try
+            {
+                da = new SqlDataAdapter("cargarTFC", conexion);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+        }
+
+        public void DgvTribunal(DataGridView dgv)
+        {
+            conexion = conexionDB.AbrirConexion();
+            try
+            {
+                da = new SqlDataAdapter("cargarTribunal", conexion);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+        }
+
+        public void DgvAlumno(DataGridView dgv)
+        {
+            conexion = conexionDB.AbrirConexion();
+            try
+            {
+                da = new SqlDataAdapter("cargarAlumno", conexion);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgv.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conexionDB.CerrarConexion(conexion);
+            }
+        }
+
     }
 }
