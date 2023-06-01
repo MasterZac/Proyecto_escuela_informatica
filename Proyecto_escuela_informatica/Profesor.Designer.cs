@@ -248,7 +248,7 @@
             // btnSalir
             // 
             this.btnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
-            this.btnSalir.Location = new System.Drawing.Point(936, 653);
+            this.btnSalir.Location = new System.Drawing.Point(933, 612);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 43);
             this.btnSalir.TabIndex = 13;
@@ -259,6 +259,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1034, 708);
             this.ControlBox = false;

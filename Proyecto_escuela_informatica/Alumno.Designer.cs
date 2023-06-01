@@ -55,29 +55,32 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.txtBuscarGrupo = new System.Windows.Forms.TextBox();
+            this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.dgvGrupo = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSeleccionar2 = new System.Windows.Forms.Button();
+            this.txtBuscarProfesor = new System.Windows.Forms.TextBox();
+            this.cboProfesor = new System.Windows.Forms.ComboBox();
+            this.dgvProfesor = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnSeleccionar3 = new System.Windows.Forms.Button();
+            this.txtBuscarTFC = new System.Windows.Forms.TextBox();
+            this.cboTFC = new System.Windows.Forms.ComboBox();
+            this.dgvTFC = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.consultarGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvProfesor = new System.Windows.Forms.DataGridView();
-            this.dgvTFC = new System.Windows.Forms.DataGridView();
-            this.cboTFC = new System.Windows.Forms.ComboBox();
-            this.cboProfesor = new System.Windows.Forms.ComboBox();
-            this.cboGrupo = new System.Windows.Forms.ComboBox();
-            this.txtBuscarGrupo = new System.Windows.Forms.TextBox();
-            this.txtBuscarProfesor = new System.Windows.Forms.TextBox();
-            this.txtBuscarTFC = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumno)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesor)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTFC)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -377,140 +380,49 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(3, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 361);
+            this.tabControl1.Size = new System.Drawing.Size(867, 377);
             this.tabControl1.TabIndex = 27;
             this.tabControl1.Visible = false;
             // 
             // tabPage1
             // 
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.btnSeleccionar);
             this.tabPage1.Controls.Add(this.txtBuscarGrupo);
             this.tabPage1.Controls.Add(this.cboGrupo);
             this.tabPage1.Controls.Add(this.dgvGrupo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(781, 328);
+            this.tabPage1.Size = new System.Drawing.Size(859, 341);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Grupo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dgvGrupo
+            // btnSeleccionar
             // 
-            this.dgvGrupo.AllowUserToAddRows = false;
-            this.dgvGrupo.AllowUserToDeleteRows = false;
-            this.dgvGrupo.AllowUserToResizeColumns = false;
-            this.dgvGrupo.AllowUserToResizeRows = false;
-            this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrupo.Location = new System.Drawing.Point(96, 112);
-            this.dgvGrupo.Name = "dgvGrupo";
-            this.dgvGrupo.RowHeadersWidth = 62;
-            this.dgvGrupo.RowTemplate.Height = 28;
-            this.dgvGrupo.Size = new System.Drawing.Size(510, 161);
-            this.dgvGrupo.TabIndex = 0;
+            this.btnSeleccionar.Location = new System.Drawing.Point(661, 227);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(104, 46);
+            this.btnSeleccionar.TabIndex = 3;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
-            // tabPage2
+            // txtBuscarGrupo
             // 
-            this.tabPage2.Controls.Add(this.txtBuscarProfesor);
-            this.tabPage2.Controls.Add(this.cboProfesor);
-            this.tabPage2.Controls.Add(this.dgvProfesor);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(781, 328);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Profesor";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.txtBuscarTFC);
-            this.tabPage3.Controls.Add(this.cboTFC);
-            this.tabPage3.Controls.Add(this.dgvTFC);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(781, 328);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TFC";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarGrupoToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1481, 36);
-            this.menuStrip1.TabIndex = 21;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // consultarGrupoToolStripMenuItem
-            // 
-            this.consultarGrupoToolStripMenuItem.Name = "consultarGrupoToolStripMenuItem";
-            this.consultarGrupoToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
-            this.consultarGrupoToolStripMenuItem.Text = "Consultar Datos";
-            this.consultarGrupoToolStripMenuItem.Click += new System.EventHandler(this.consultarGrupoToolStripMenuItem_Click);
-            // 
-            // dgvProfesor
-            // 
-            this.dgvProfesor.AllowUserToAddRows = false;
-            this.dgvProfesor.AllowUserToDeleteRows = false;
-            this.dgvProfesor.AllowUserToResizeColumns = false;
-            this.dgvProfesor.AllowUserToResizeRows = false;
-            this.dgvProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesor.Location = new System.Drawing.Point(96, 139);
-            this.dgvProfesor.Name = "dgvProfesor";
-            this.dgvProfesor.RowHeadersWidth = 62;
-            this.dgvProfesor.RowTemplate.Height = 28;
-            this.dgvProfesor.Size = new System.Drawing.Size(510, 161);
-            this.dgvProfesor.TabIndex = 1;
-            // 
-            // dgvTFC
-            // 
-            this.dgvTFC.AllowUserToAddRows = false;
-            this.dgvTFC.AllowUserToDeleteRows = false;
-            this.dgvTFC.AllowUserToResizeColumns = false;
-            this.dgvTFC.AllowUserToResizeRows = false;
-            this.dgvTFC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTFC.Location = new System.Drawing.Point(76, 137);
-            this.dgvTFC.Name = "dgvTFC";
-            this.dgvTFC.RowHeadersWidth = 62;
-            this.dgvTFC.RowTemplate.Height = 28;
-            this.dgvTFC.Size = new System.Drawing.Size(564, 161);
-            this.dgvTFC.TabIndex = 1;
-            // 
-            // cboTFC
-            // 
-            this.cboTFC.FormattingEnabled = true;
-            this.cboTFC.Items.AddRange(new object[] {
-            "Numero_orden",
-            "Fecha_comienzo",
-            "Tema"});
-            this.cboTFC.Location = new System.Drawing.Point(76, 91);
-            this.cboTFC.Name = "cboTFC";
-            this.cboTFC.Size = new System.Drawing.Size(133, 28);
-            this.cboTFC.TabIndex = 2;
-            this.cboTFC.Text = "Consultar Por:";
-            // 
-            // cboProfesor
-            // 
-            this.cboProfesor.FormattingEnabled = true;
-            this.cboProfesor.Items.AddRange(new object[] {
-            "CI",
-            "Nombre",
-            "Domicilio"});
-            this.cboProfesor.Location = new System.Drawing.Point(96, 95);
-            this.cboProfesor.Name = "cboProfesor";
-            this.cboProfesor.Size = new System.Drawing.Size(130, 28);
-            this.cboProfesor.TabIndex = 2;
-            this.cboProfesor.Text = "Consultar Por:";
+            this.txtBuscarGrupo.Location = new System.Drawing.Point(257, 62);
+            this.txtBuscarGrupo.Name = "txtBuscarGrupo";
+            this.txtBuscarGrupo.Size = new System.Drawing.Size(161, 26);
+            this.txtBuscarGrupo.TabIndex = 2;
+            this.txtBuscarGrupo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarGrupo_KeyUp);
             // 
             // cboGrupo
             // 
@@ -525,29 +437,158 @@
             this.cboGrupo.TabIndex = 1;
             this.cboGrupo.Text = "Consultar Por:";
             // 
-            // txtBuscarGrupo
+            // dgvGrupo
             // 
-            this.txtBuscarGrupo.Location = new System.Drawing.Point(257, 62);
-            this.txtBuscarGrupo.Name = "txtBuscarGrupo";
-            this.txtBuscarGrupo.Size = new System.Drawing.Size(161, 26);
-            this.txtBuscarGrupo.TabIndex = 2;
-            this.txtBuscarGrupo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarGrupo_KeyUp);
+            this.dgvGrupo.AllowUserToAddRows = false;
+            this.dgvGrupo.AllowUserToDeleteRows = false;
+            this.dgvGrupo.AllowUserToResizeColumns = false;
+            this.dgvGrupo.AllowUserToResizeRows = false;
+            this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrupo.Location = new System.Drawing.Point(96, 112);
+            this.dgvGrupo.Name = "dgvGrupo";
+            this.dgvGrupo.RowHeadersWidth = 62;
+            this.dgvGrupo.RowTemplate.Height = 28;
+            this.dgvGrupo.Size = new System.Drawing.Size(510, 161);
+            this.dgvGrupo.TabIndex = 0;
+            this.dgvGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupo_CellClick);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage2.Controls.Add(this.btnSeleccionar2);
+            this.tabPage2.Controls.Add(this.txtBuscarProfesor);
+            this.tabPage2.Controls.Add(this.cboProfesor);
+            this.tabPage2.Controls.Add(this.dgvProfesor);
+            this.tabPage2.Location = new System.Drawing.Point(4, 32);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(119, 3);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Profesor";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnSeleccionar2
+            // 
+            this.btnSeleccionar2.Location = new System.Drawing.Point(656, 232);
+            this.btnSeleccionar2.Name = "btnSeleccionar2";
+            this.btnSeleccionar2.Size = new System.Drawing.Size(104, 46);
+            this.btnSeleccionar2.TabIndex = 4;
+            this.btnSeleccionar2.Text = "Seleccionar";
+            this.btnSeleccionar2.UseVisualStyleBackColor = true;
+            this.btnSeleccionar2.Click += new System.EventHandler(this.btnSeleccionar2_Click);
             // 
             // txtBuscarProfesor
             // 
-            this.txtBuscarProfesor.Location = new System.Drawing.Point(274, 95);
+            this.txtBuscarProfesor.Location = new System.Drawing.Point(274, 60);
             this.txtBuscarProfesor.Name = "txtBuscarProfesor";
             this.txtBuscarProfesor.Size = new System.Drawing.Size(182, 26);
             this.txtBuscarProfesor.TabIndex = 3;
             this.txtBuscarProfesor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarProfesor_KeyUp);
             // 
+            // cboProfesor
+            // 
+            this.cboProfesor.FormattingEnabled = true;
+            this.cboProfesor.Items.AddRange(new object[] {
+            "CI",
+            "Nombre",
+            "Domicilio"});
+            this.cboProfesor.Location = new System.Drawing.Point(96, 60);
+            this.cboProfesor.Name = "cboProfesor";
+            this.cboProfesor.Size = new System.Drawing.Size(130, 28);
+            this.cboProfesor.TabIndex = 2;
+            this.cboProfesor.Text = "Consultar Por:";
+            // 
+            // dgvProfesor
+            // 
+            this.dgvProfesor.AllowUserToAddRows = false;
+            this.dgvProfesor.AllowUserToDeleteRows = false;
+            this.dgvProfesor.AllowUserToResizeColumns = false;
+            this.dgvProfesor.AllowUserToResizeRows = false;
+            this.dgvProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfesor.Location = new System.Drawing.Point(96, 120);
+            this.dgvProfesor.Name = "dgvProfesor";
+            this.dgvProfesor.RowHeadersWidth = 62;
+            this.dgvProfesor.RowTemplate.Height = 28;
+            this.dgvProfesor.Size = new System.Drawing.Size(510, 161);
+            this.dgvProfesor.TabIndex = 1;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage3.Controls.Add(this.btnSeleccionar3);
+            this.tabPage3.Controls.Add(this.txtBuscarTFC);
+            this.tabPage3.Controls.Add(this.cboTFC);
+            this.tabPage3.Controls.Add(this.dgvTFC);
+            this.tabPage3.Location = new System.Drawing.Point(4, 32);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(119, 3);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TFC";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnSeleccionar3
+            // 
+            this.btnSeleccionar3.Location = new System.Drawing.Point(698, 181);
+            this.btnSeleccionar3.Name = "btnSeleccionar3";
+            this.btnSeleccionar3.Size = new System.Drawing.Size(104, 46);
+            this.btnSeleccionar3.TabIndex = 5;
+            this.btnSeleccionar3.Text = "Seleccionar";
+            this.btnSeleccionar3.UseVisualStyleBackColor = true;
+            this.btnSeleccionar3.Click += new System.EventHandler(this.btnSeleccionar3_Click);
+            // 
             // txtBuscarTFC
             // 
-            this.txtBuscarTFC.Location = new System.Drawing.Point(245, 91);
+            this.txtBuscarTFC.Location = new System.Drawing.Point(243, 48);
             this.txtBuscarTFC.Name = "txtBuscarTFC";
             this.txtBuscarTFC.Size = new System.Drawing.Size(188, 26);
             this.txtBuscarTFC.TabIndex = 3;
             this.txtBuscarTFC.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarTFC_KeyUp);
+            // 
+            // cboTFC
+            // 
+            this.cboTFC.FormattingEnabled = true;
+            this.cboTFC.Items.AddRange(new object[] {
+            "Numero_orden",
+            "Fecha_comienzo",
+            "Tema"});
+            this.cboTFC.Location = new System.Drawing.Point(76, 46);
+            this.cboTFC.Name = "cboTFC";
+            this.cboTFC.Size = new System.Drawing.Size(133, 28);
+            this.cboTFC.TabIndex = 2;
+            this.cboTFC.Text = "Consultar Por:";
+            // 
+            // dgvTFC
+            // 
+            this.dgvTFC.AllowUserToAddRows = false;
+            this.dgvTFC.AllowUserToDeleteRows = false;
+            this.dgvTFC.AllowUserToResizeColumns = false;
+            this.dgvTFC.AllowUserToResizeRows = false;
+            this.dgvTFC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTFC.Location = new System.Drawing.Point(76, 106);
+            this.dgvTFC.Name = "dgvTFC";
+            this.dgvTFC.RowHeadersWidth = 62;
+            this.dgvTFC.RowTemplate.Height = 28;
+            this.dgvTFC.Size = new System.Drawing.Size(564, 161);
+            this.dgvTFC.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarGrupoToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1481, 33);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // consultarGrupoToolStripMenuItem
+            // 
+            this.consultarGrupoToolStripMenuItem.Name = "consultarGrupoToolStripMenuItem";
+            this.consultarGrupoToolStripMenuItem.Size = new System.Drawing.Size(155, 29);
+            this.consultarGrupoToolStripMenuItem.Text = "Consultar Datos";
+            this.consultarGrupoToolStripMenuItem.Click += new System.EventHandler(this.consultarGrupoToolStripMenuItem_Click);
             // 
             // Alumno
             // 
@@ -572,12 +613,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupo)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesor)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTFC)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTFC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -624,5 +665,8 @@
         private System.Windows.Forms.TextBox txtBuscarGrupo;
         private System.Windows.Forms.TextBox txtBuscarProfesor;
         private System.Windows.Forms.TextBox txtBuscarTFC;
+        private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.Button btnSeleccionar2;
+        private System.Windows.Forms.Button btnSeleccionar3;
     }
 }

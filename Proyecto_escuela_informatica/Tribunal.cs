@@ -318,5 +318,19 @@ namespace Proyecto_escuela_informatica
         {
 
         }
+
+        private void generarArchivoCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Archivos form = new Archivos();
+            this.Hide();
+            form.Show();
+        }
+
+        private void cargarArchivoCsvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cargar_archivo form  = new Cargar_archivo();   
+            this.Hide();
+            form.Show();  
+        }
     }
 }

@@ -104,7 +104,7 @@ namespace Proyecto_escuela_informatica
         {
             bool aux = false;
             if (txtMatricula.Text == "" || txtCI.Text == "" || txtNombre.Text == "" || txtNumeroGrupo.Text == "" || 
-                txtCIProfesor.Text == "" || txtNumeroOrden.Text == "" || txtEstatus.Text == "")
+                txtCIProfesor.Text == "" || txtNumeroOrden.Text == "")
             {
                 aux = true;
             }
@@ -249,10 +249,6 @@ namespace Proyecto_escuela_informatica
                 SqlParameter Numero_orden = new SqlParameter("@Numero_orden", SqlDbType.Char, 10);
                 Numero_orden.Value = txtNumeroOrden.Text;
                 cmd.Parameters.Add(Numero_orden);
-
-                SqlParameter Estatus = new SqlParameter("@Estatus", SqlDbType.VarChar, 50);
-                Estatus.Value = txtEstatus.Text;
-                cmd.Parameters.Add(Estatus);
 
                 cmd.ExecuteNonQuery();
                 cargar.DgvAlumno(dgvAlumno);
@@ -557,6 +553,38 @@ namespace Proyecto_escuela_informatica
                 ConsultaGrupo();
             }
             
+        }
+
+        private void dgvGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (dgvGrupo.SelectedRows.Count > 0)
+            {
+                txtNumeroGrupo.Text = dgvGrupo.SelectedCells[0].Value.ToString();
+                MessageBox.Show("Grupo Seleccionado");
+            }
+        }
+
+        private void btnSeleccionar2_Click(object sender, EventArgs e)
+        {
+            if (dgvProfesor.SelectedRows.Count > 0)
+            {
+                txtCIProfesor.Text = dgvProfesor.SelectedCells[0].Value.ToString();
+                MessageBox.Show("Profesor Seleccionado");
+            }
+        }
+
+        private void btnSeleccionar3_Click(object sender, EventArgs e)
+        {
+            if (dgvTFC.SelectedRows.Count > 0)
+            {
+                txtNumeroOrden.Text = dgvTFC.SelectedCells[0].Value.ToString();
+                MessageBox.Show("TFC Seleccionado");
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From TFC (" + cboTFC.Text + ") like ('" + txtBuscar.Text + "')";
+                string query = "Select * From TFC (" + cboTFC.Text + ") like ('%" + txtBuscar.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -232,6 +232,7 @@ namespace Proyecto_escuela_informatica
             else
             {
                 MessageBox.Show("TFC no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
         }

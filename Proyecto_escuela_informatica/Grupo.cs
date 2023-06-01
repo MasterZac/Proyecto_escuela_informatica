@@ -233,7 +233,7 @@ namespace Proyecto_escuela_informatica
                     cmd.ExecuteNonQuery();
                     cargar.DgvGrupo(dgvGrupo);
                     Limpiar();
-                    MessageBox.Show("Grupo habilitado y/o Deshabilitado");
+                    MessageBox.Show("Grupo habilitado o Deshabilitado");
 
                 }
                 catch (SqlException ex) 

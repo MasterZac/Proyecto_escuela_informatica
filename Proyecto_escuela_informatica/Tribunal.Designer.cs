@@ -35,19 +35,23 @@
             this.txtNumeroTribunal = new System.Windows.Forms.TextBox();
             this.txtLugarExamen = new System.Windows.Forms.TextBox();
             this.txtNumeroComponentes = new System.Windows.Forms.NumericUpDown();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvTribunal = new System.Windows.Forms.DataGridView();
             this.cboTribunal = new System.Windows.Forms.ComboBox();
             this.txtConsulta = new System.Windows.Forms.TextBox();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEstatus = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.generarArchivoCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cargarArchivoCsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTribunal)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -121,49 +125,6 @@
             this.txtNumeroComponentes.Size = new System.Drawing.Size(120, 30);
             this.txtNumeroComponentes.TabIndex = 6;
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Image = global::Proyecto_escuela_informatica.Properties.Resources.limpieza_de_datos;
-            this.btnLimpiar.Location = new System.Drawing.Point(766, 273);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(93, 68);
-            this.btnLimpiar.TabIndex = 14;
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizar.Image = global::Proyecto_escuela_informatica.Properties.Resources.actualizar;
-            this.btnActualizar.Location = new System.Drawing.Point(597, 273);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(95, 68);
-            this.btnActualizar.TabIndex = 12;
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_cerrar_ventana_48;
-            this.btnEliminar.Location = new System.Drawing.Point(394, 273);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(92, 68);
-            this.btnEliminar.TabIndex = 13;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Image = global::Proyecto_escuela_informatica.Properties.Resources.agregar__1_;
-            this.btnAgregar.Location = new System.Drawing.Point(199, 273);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(84, 68);
-            this.btnAgregar.TabIndex = 11;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -216,16 +177,6 @@
             this.txtConsulta.Click += new System.EventHandler(this.txtConsulta_Click);
             this.txtConsulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtConsulta_KeyUp);
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
-            this.btnSalir.Location = new System.Drawing.Point(1008, 712);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 43);
-            this.btnSalir.TabIndex = 19;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -245,6 +196,86 @@
             this.txtEstatus.ReadOnly = true;
             this.txtEstatus.Size = new System.Drawing.Size(153, 30);
             this.txtEstatus.TabIndex = 21;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generarArchivoCSVToolStripMenuItem,
+            this.cargarArchivoCsvToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1107, 33);
+            this.menuStrip1.TabIndex = 22;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // generarArchivoCSVToolStripMenuItem
+            // 
+            this.generarArchivoCSVToolStripMenuItem.Name = "generarArchivoCSVToolStripMenuItem";
+            this.generarArchivoCSVToolStripMenuItem.Size = new System.Drawing.Size(188, 29);
+            this.generarArchivoCSVToolStripMenuItem.Text = "Generar archivo CSV";
+            this.generarArchivoCSVToolStripMenuItem.Click += new System.EventHandler(this.generarArchivoCSVToolStripMenuItem_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
+            this.btnSalir.Location = new System.Drawing.Point(1008, 712);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 43);
+            this.btnSalir.TabIndex = 19;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Image = global::Proyecto_escuela_informatica.Properties.Resources.limpieza_de_datos;
+            this.btnLimpiar.Location = new System.Drawing.Point(766, 273);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(93, 68);
+            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
+            this.btnActualizar.Image = global::Proyecto_escuela_informatica.Properties.Resources.actualizar;
+            this.btnActualizar.Location = new System.Drawing.Point(597, 273);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(95, 68);
+            this.btnActualizar.TabIndex = 12;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Image = global::Proyecto_escuela_informatica.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnEliminar.Location = new System.Drawing.Point(394, 273);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(92, 68);
+            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Image = global::Proyecto_escuela_informatica.Properties.Resources.agregar__1_;
+            this.btnAgregar.Location = new System.Drawing.Point(199, 273);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(84, 68);
+            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cargarArchivoCsvToolStripMenuItem
+            // 
+            this.cargarArchivoCsvToolStripMenuItem.Name = "cargarArchivoCsvToolStripMenuItem";
+            this.cargarArchivoCsvToolStripMenuItem.Size = new System.Drawing.Size(179, 29);
+            this.cargarArchivoCsvToolStripMenuItem.Text = "Cargar archivo CSV";
+            this.cargarArchivoCsvToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoCsvToolStripMenuItem_Click);
             // 
             // Tribunal
             // 
@@ -271,13 +302,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Tribunal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tribunal";
             this.Load += new System.EventHandler(this.Tribunal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTribunal)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +338,8 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEstatus;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem generarArchivoCSVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargarArchivoCsvToolStripMenuItem;
     }
 }

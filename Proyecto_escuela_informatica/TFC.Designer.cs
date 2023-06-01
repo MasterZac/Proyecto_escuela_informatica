@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -213,6 +213,10 @@
             // cboTFC
             // 
             this.cboTFC.FormattingEnabled = true;
+            this.cboTFC.Items.AddRange(new object[] {
+            "Numero_orden",
+            "Tema",
+            "Estatus"});
             this.cboTFC.Location = new System.Drawing.Point(51, 83);
             this.cboTFC.Name = "cboTFC";
             this.cboTFC.Size = new System.Drawing.Size(139, 33);
@@ -233,10 +237,10 @@
             this.dgvTFC.Location = new System.Drawing.Point(40, 155);
             this.dgvTFC.Name = "dgvTFC";
             this.dgvTFC.RowHeadersWidth = 62;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTFC.RowTemplate.Height = 28;
             this.dgvTFC.Size = new System.Drawing.Size(560, 224);
             this.dgvTFC.TabIndex = 0;
@@ -257,6 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1273, 603);
             this.ControlBox = false;

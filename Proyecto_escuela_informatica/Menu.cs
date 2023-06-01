@@ -68,5 +68,36 @@ namespace Proyecto_escuela_informatica
             this.Hide();
             form.Show();
         }
+
+        private void BtnAyuda_Click(object sender, EventArgs e)
+        {
+            Ayuda form = new Ayuda();
+            this.Hide();
+            form.Show();
+        }
+
+        private void labelUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSeConforma_Click(object sender, EventArgs e)
+        {
+            Se_conforma form = new Se_conforma();
+            this.Hide();
+            form.Show();
+        }
+
+        private void btnExamina_Click(object sender, EventArgs e)
+        {
+            Examina form = new Examina();
+            this.Hide();
+            form.Show();
+        }
     }
 }

@@ -89,6 +89,7 @@
             this.btnExamina.TabIndex = 9;
             this.btnExamina.Text = "EXAMINA";
             this.btnExamina.UseVisualStyleBackColor = true;
+            this.btnExamina.Click += new System.EventHandler(this.btnExamina_Click);
             // 
             // btnSeConforma
             // 
@@ -104,6 +105,7 @@
             this.btnSeConforma.TabIndex = 8;
             this.btnSeConforma.Text = "SE CONFORMA";
             this.btnSeConforma.UseVisualStyleBackColor = true;
+            this.btnSeConforma.Click += new System.EventHandler(this.btnSeConforma_Click);
             // 
             // BtnAyuda
             // 
@@ -119,6 +121,7 @@
             this.BtnAyuda.TabIndex = 7;
             this.BtnAyuda.Text = "AYUDA";
             this.BtnAyuda.UseVisualStyleBackColor = true;
+            this.BtnAyuda.Click += new System.EventHandler(this.BtnAyuda_Click);
             // 
             // BtnSalir
             // 
@@ -262,6 +265,7 @@
             this.labelUsuario.Size = new System.Drawing.Size(132, 25);
             this.labelUsuario.TabIndex = 6;
             this.labelUsuario.Text = "labelUsuario";
+            this.labelUsuario.Click += new System.EventHandler(this.labelUsuario_Click);
             // 
             // label3
             // 
@@ -282,6 +286,7 @@
             this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Usuario:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
