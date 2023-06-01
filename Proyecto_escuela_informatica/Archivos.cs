@@ -47,6 +47,7 @@ namespace Proyecto_escuela_informatica
 
         private void BtnExportar_Click(object sender, EventArgs e)
         {
+
             if (txtRuta.Text == "")
             {
                 MessageBox.Show("Busca un lugar donde guardaras el archivo csv", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
