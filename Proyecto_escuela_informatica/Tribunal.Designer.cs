@@ -43,12 +43,12 @@
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.generarArchivoCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarArchivoCsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cargarArchivoCsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroComponentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTribunal)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -106,6 +106,7 @@
             this.txtNumeroTribunal.Name = "txtNumeroTribunal";
             this.txtNumeroTribunal.Size = new System.Drawing.Size(143, 30);
             this.txtNumeroTribunal.TabIndex = 4;
+            this.txtNumeroTribunal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroTribunal_KeyPress);
             // 
             // txtLugarExamen
             // 
@@ -116,6 +117,7 @@
             this.txtLugarExamen.Name = "txtLugarExamen";
             this.txtLugarExamen.Size = new System.Drawing.Size(280, 72);
             this.txtLugarExamen.TabIndex = 5;
+            this.txtLugarExamen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLugarExamen_KeyPress);
             // 
             // txtNumeroComponentes
             // 
@@ -191,7 +193,7 @@
             // txtEstatus
             // 
             this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstatus.Location = new System.Drawing.Point(766, 204);
+            this.txtEstatus.Location = new System.Drawing.Point(766, 207);
             this.txtEstatus.Name = "txtEstatus";
             this.txtEstatus.ReadOnly = true;
             this.txtEstatus.Size = new System.Drawing.Size(153, 30);
@@ -216,6 +218,13 @@
             this.generarArchivoCSVToolStripMenuItem.Size = new System.Drawing.Size(188, 29);
             this.generarArchivoCSVToolStripMenuItem.Text = "Generar archivo CSV";
             this.generarArchivoCSVToolStripMenuItem.Click += new System.EventHandler(this.generarArchivoCSVToolStripMenuItem_Click);
+            // 
+            // cargarArchivoCsvToolStripMenuItem
+            // 
+            this.cargarArchivoCsvToolStripMenuItem.Name = "cargarArchivoCsvToolStripMenuItem";
+            this.cargarArchivoCsvToolStripMenuItem.Size = new System.Drawing.Size(179, 29);
+            this.cargarArchivoCsvToolStripMenuItem.Text = "Cargar archivo CSV";
+            this.cargarArchivoCsvToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoCsvToolStripMenuItem_Click);
             // 
             // btnSalir
             // 
@@ -270,17 +279,11 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // cargarArchivoCsvToolStripMenuItem
-            // 
-            this.cargarArchivoCsvToolStripMenuItem.Name = "cargarArchivoCsvToolStripMenuItem";
-            this.cargarArchivoCsvToolStripMenuItem.Size = new System.Drawing.Size(179, 29);
-            this.cargarArchivoCsvToolStripMenuItem.Text = "Cargar archivo CSV";
-            this.cargarArchivoCsvToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoCsvToolStripMenuItem_Click);
-            // 
             // Tribunal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1107, 783);
             this.ControlBox = false;

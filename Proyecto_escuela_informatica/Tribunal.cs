@@ -58,7 +58,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Tribunal Where (" + cboTribunal.Text + ") Like ('" + txtConsulta.Text + "')";
+                string query = "Select * From Tribunal Where (" + cboTribunal.Text + ") Like ('%" + txtConsulta.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -148,7 +148,7 @@ namespace Proyecto_escuela_informatica
 
             if (ConsultaExistencia())
             {
-                MessageBox.Show("Tribunal no existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tribunal ya existente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -316,7 +316,15 @@ namespace Proyecto_escuela_informatica
 
         private void txtConsulta_KeyUp(object sender, KeyEventArgs e)
         {
-
+            if (cboTribunal.SelectedIndex == -1)
+            {
+                MessageBox.Show("Elige porque tipo de dato quieres consultar ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                Consultas();
+            }
         }
 
         private void generarArchivoCSVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -331,6 +339,27 @@ namespace Proyecto_escuela_informatica
             Cargar_archivo form  = new Cargar_archivo();   
             this.Hide();
             form.Show();  
+        }
+
+        private void txtNumeroTribunal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtLugarExamen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33) && (e.KeyChar <= 64) || (e.KeyChar >= 91) && (e.KeyChar <= 96) || (e.KeyChar >= 123) && (e.KeyChar <= 255))
+            {
+                MessageBox.Show("Caracter no permitido", "aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+
         }
     }
 }

@@ -244,7 +244,7 @@ namespace Proyecto_escuela_informatica
                     cmd.Parameters.Add(Fecha);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Registro exitoso: el alumno" + txtNombre.Text + " ha defendido el TFC " + txtTema.Text + " en la fecha " + txtFecha.Text);
+                    MessageBox.Show("Registro exitoso: el alumno " + txtNombre.Text + " ha defendido el TFC " + txtTema.Text + " en la fecha " + txtFecha.Text);
                     CargarDgvExamina();
                     NuevoTribunal();
                     NuevoAlumno();

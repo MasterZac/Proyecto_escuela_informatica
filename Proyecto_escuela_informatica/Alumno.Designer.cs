@@ -102,6 +102,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(202, 30);
             this.txtMatricula.TabIndex = 1;
+            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
             // 
             // txtCI
             // 
@@ -111,6 +112,7 @@
             this.txtCI.Name = "txtCI";
             this.txtCI.Size = new System.Drawing.Size(211, 30);
             this.txtCI.TabIndex = 2;
+            this.txtCI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCI_KeyPress);
             // 
             // txtNombre
             // 
@@ -121,6 +123,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(252, 58);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtNumeroGrupo
             // 
@@ -128,6 +131,7 @@
             this.txtNumeroGrupo.Location = new System.Drawing.Point(684, 176);
             this.txtNumeroGrupo.MaxLength = 10;
             this.txtNumeroGrupo.Name = "txtNumeroGrupo";
+            this.txtNumeroGrupo.ReadOnly = true;
             this.txtNumeroGrupo.Size = new System.Drawing.Size(211, 30);
             this.txtNumeroGrupo.TabIndex = 4;
             // 
@@ -137,6 +141,7 @@
             this.txtCIProfesor.Location = new System.Drawing.Point(252, 267);
             this.txtCIProfesor.MaxLength = 5;
             this.txtCIProfesor.Name = "txtCIProfesor";
+            this.txtCIProfesor.ReadOnly = true;
             this.txtCIProfesor.Size = new System.Drawing.Size(211, 30);
             this.txtCIProfesor.TabIndex = 5;
             // 
@@ -146,6 +151,7 @@
             this.txtNumeroOrden.Location = new System.Drawing.Point(1136, 173);
             this.txtNumeroOrden.MaxLength = 10;
             this.txtNumeroOrden.Name = "txtNumeroOrden";
+            this.txtNumeroOrden.ReadOnly = true;
             this.txtNumeroOrden.Size = new System.Drawing.Size(141, 30);
             this.txtNumeroOrden.TabIndex = 6;
             // 
@@ -387,7 +393,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(867, 377);
+            this.tabControl1.Size = new System.Drawing.Size(833, 357);
             this.tabControl1.TabIndex = 27;
             this.tabControl1.Visible = false;
             // 
@@ -401,7 +407,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(859, 341);
+            this.tabPage1.Size = new System.Drawing.Size(825, 321);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Grupo";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -444,11 +450,11 @@
             this.dgvGrupo.AllowUserToResizeColumns = false;
             this.dgvGrupo.AllowUserToResizeRows = false;
             this.dgvGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrupo.Location = new System.Drawing.Point(96, 112);
+            this.dgvGrupo.Location = new System.Drawing.Point(45, 106);
             this.dgvGrupo.Name = "dgvGrupo";
             this.dgvGrupo.RowHeadersWidth = 62;
             this.dgvGrupo.RowTemplate.Height = 28;
-            this.dgvGrupo.Size = new System.Drawing.Size(510, 161);
+            this.dgvGrupo.Size = new System.Drawing.Size(561, 167);
             this.dgvGrupo.TabIndex = 0;
             this.dgvGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupo_CellClick);
             // 
@@ -462,7 +468,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(119, 3);
+            this.tabPage2.Size = new System.Drawing.Size(895, 306);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Profesor";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -505,11 +511,11 @@
             this.dgvProfesor.AllowUserToResizeColumns = false;
             this.dgvProfesor.AllowUserToResizeRows = false;
             this.dgvProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesor.Location = new System.Drawing.Point(96, 120);
+            this.dgvProfesor.Location = new System.Drawing.Point(60, 103);
             this.dgvProfesor.Name = "dgvProfesor";
             this.dgvProfesor.RowHeadersWidth = 62;
             this.dgvProfesor.RowTemplate.Height = 28;
-            this.dgvProfesor.Size = new System.Drawing.Size(510, 161);
+            this.dgvProfesor.Size = new System.Drawing.Size(546, 178);
             this.dgvProfesor.TabIndex = 1;
             // 
             // tabPage3
@@ -521,7 +527,7 @@
             this.tabPage3.Controls.Add(this.dgvTFC);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(119, 3);
+            this.tabPage3.Size = new System.Drawing.Size(895, 306);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TFC";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -564,11 +570,11 @@
             this.dgvTFC.AllowUserToResizeColumns = false;
             this.dgvTFC.AllowUserToResizeRows = false;
             this.dgvTFC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTFC.Location = new System.Drawing.Point(76, 106);
+            this.dgvTFC.Location = new System.Drawing.Point(60, 91);
             this.dgvTFC.Name = "dgvTFC";
             this.dgvTFC.RowHeadersWidth = 62;
             this.dgvTFC.RowTemplate.Height = 28;
-            this.dgvTFC.Size = new System.Drawing.Size(564, 161);
+            this.dgvTFC.Size = new System.Drawing.Size(580, 176);
             this.dgvTFC.TabIndex = 1;
             // 
             // menuStrip1

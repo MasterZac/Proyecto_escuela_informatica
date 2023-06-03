@@ -131,6 +131,7 @@
             this.txtNumeroComponentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroComponentes.Location = new System.Drawing.Point(337, 118);
             this.txtNumeroComponentes.Name = "txtNumeroComponentes";
+            this.txtNumeroComponentes.ReadOnly = true;
             this.txtNumeroComponentes.Size = new System.Drawing.Size(120, 30);
             this.txtNumeroComponentes.TabIndex = 11;
             // 
@@ -152,6 +153,7 @@
             this.txtLugarExamen.MaxLength = 100;
             this.txtLugarExamen.Multiline = true;
             this.txtLugarExamen.Name = "txtLugarExamen";
+            this.txtLugarExamen.ReadOnly = true;
             this.txtLugarExamen.Size = new System.Drawing.Size(280, 72);
             this.txtLugarExamen.TabIndex = 9;
             // 
@@ -161,6 +163,7 @@
             this.txtNumeroTribunal.Location = new System.Drawing.Point(263, 54);
             this.txtNumeroTribunal.MaxLength = 5;
             this.txtNumeroTribunal.Name = "txtNumeroTribunal";
+            this.txtNumeroTribunal.ReadOnly = true;
             this.txtNumeroTribunal.Size = new System.Drawing.Size(143, 30);
             this.txtNumeroTribunal.TabIndex = 8;
             // 
@@ -223,6 +226,7 @@
             this.txtTema.MaxLength = 100;
             this.txtTema.Multiline = true;
             this.txtTema.Name = "txtTema";
+            this.txtTema.ReadOnly = true;
             this.txtTema.Size = new System.Drawing.Size(252, 58);
             this.txtTema.TabIndex = 36;
             // 
@@ -243,6 +247,7 @@
             this.txtNumeroOrden.Location = new System.Drawing.Point(316, 143);
             this.txtNumeroOrden.MaxLength = 10;
             this.txtNumeroOrden.Name = "txtNumeroOrden";
+            this.txtNumeroOrden.ReadOnly = true;
             this.txtNumeroOrden.Size = new System.Drawing.Size(141, 30);
             this.txtNumeroOrden.TabIndex = 33;
             // 
@@ -263,6 +268,7 @@
             this.txtMatricula.Location = new System.Drawing.Point(160, 54);
             this.txtMatricula.MaxLength = 10;
             this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.ReadOnly = true;
             this.txtMatricula.Size = new System.Drawing.Size(202, 30);
             this.txtMatricula.TabIndex = 25;
             // 
@@ -273,6 +279,7 @@
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(252, 58);
             this.txtNombre.TabIndex = 27;
             // 
@@ -350,7 +357,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(878, 364);
+            this.tabControl1.Size = new System.Drawing.Size(797, 364);
             this.tabControl1.TabIndex = 13;
             this.tabControl1.Visible = false;
             // 
@@ -363,7 +370,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(870, 328);
+            this.tabPage1.Size = new System.Drawing.Size(789, 328);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Alumno";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -425,7 +432,7 @@
             this.tabPage3.Controls.Add(this.dgvTribunal);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(818, 298);
+            this.tabPage3.Size = new System.Drawing.Size(870, 328);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tribunal";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -484,7 +491,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(818, 298);
+            this.tabPage2.Size = new System.Drawing.Size(870, 328);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Examina";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -501,7 +508,7 @@
             this.dgvExamina.Name = "dgvExamina";
             this.dgvExamina.RowHeadersWidth = 62;
             this.dgvExamina.RowTemplate.Height = 28;
-            this.dgvExamina.Size = new System.Drawing.Size(812, 292);
+            this.dgvExamina.Size = new System.Drawing.Size(864, 322);
             this.dgvExamina.TabIndex = 6;
             // 
             // Examina

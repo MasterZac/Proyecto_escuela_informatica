@@ -86,21 +86,9 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                cmd = new SqlCommand("ValidaActuaGrupo", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter Numero_grupo = new SqlParameter("@Numero_grupo", SqlDbType.Char, 10);
-                Numero_grupo.Value = TxtNumeroGrupo.Text;
-                cmd.Parameters.Add(Numero_grupo);
-
-                SqlParameter Nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 100);
-                Nombre.Value = txtNombre.Text;
-                cmd.Parameters.Add(Nombre);
-
-                SqlParameter Numero_componentes = new SqlParameter("@Numero_componentes", SqlDbType.Int);
-                Numero_componentes.Value = txtNumeroComponentes.Value;
-                cmd.Parameters.Add(Numero_componentes);
-
+                string query = "Select * From Grupo Where Numero_grupo = ('" + TxtNumeroGrupo.Text + "') and Nombre = ('" + txtNombre.Text + "') and Numero_componentes = (" + txtNumeroComponentes.Value + ")";
+                cmd = new SqlCommand(query, conexion);
+                cmd.CommandType = CommandType.Text;
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -336,6 +324,26 @@ namespace Proyecto_escuela_informatica
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void TxtNumeroGrupo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

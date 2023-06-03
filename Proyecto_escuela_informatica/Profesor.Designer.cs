@@ -99,9 +99,11 @@
             // 
             this.txtCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCI.Location = new System.Drawing.Point(145, 39);
+            this.txtCI.MaxLength = 5;
             this.txtCI.Name = "txtCI";
             this.txtCI.Size = new System.Drawing.Size(140, 32);
             this.txtCI.TabIndex = 7;
+            this.txtCI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCI_KeyPress);
             // 
             // txtNombre
             // 
@@ -110,6 +112,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(269, 32);
             this.txtNombre.TabIndex = 7;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDomicilio
             // 
@@ -119,6 +122,7 @@
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(222, 95);
             this.txtDomicilio.TabIndex = 8;
+            this.txtDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDomicilio_KeyPress);
             // 
             // txtEstatus
             // 
@@ -229,8 +233,10 @@
             this.cboProfesor.FormattingEnabled = true;
             this.cboProfesor.Items.AddRange(new object[] {
             "CI",
-            "Nombre"});
-            this.cboProfesor.Location = new System.Drawing.Point(125, 430);
+            "Nombre",
+            "Domicilio",
+            "Estatus"});
+            this.cboProfesor.Location = new System.Drawing.Point(120, 430);
             this.cboProfesor.Name = "cboProfesor";
             this.cboProfesor.Size = new System.Drawing.Size(169, 33);
             this.cboProfesor.TabIndex = 11;
@@ -239,7 +245,7 @@
             // txtBuscar
             // 
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(327, 430);
+            this.txtBuscar.Location = new System.Drawing.Point(316, 430);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(231, 30);
             this.txtBuscar.TabIndex = 12;

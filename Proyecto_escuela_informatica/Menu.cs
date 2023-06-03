@@ -99,5 +99,12 @@ namespace Proyecto_escuela_informatica
             this.Hide();
             form.Show();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Respaldos_Restauraciones form = new Respaldos_Restauraciones();
+            this.Hide();
+            form.Show();
+        }
     }
 }

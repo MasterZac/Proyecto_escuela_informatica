@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -147,18 +147,22 @@
             // 
             this.txtTema.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTema.Location = new System.Drawing.Point(234, 204);
+            this.txtTema.MaxLength = 60;
             this.txtTema.Multiline = true;
             this.txtTema.Name = "txtTema";
             this.txtTema.Size = new System.Drawing.Size(241, 60);
             this.txtTema.TabIndex = 5;
+            this.txtTema.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTema_KeyPress);
             // 
             // txtNumeroOrden
             // 
             this.txtNumeroOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroOrden.Location = new System.Drawing.Point(234, 69);
+            this.txtNumeroOrden.MaxLength = 10;
             this.txtNumeroOrden.Name = "txtNumeroOrden";
             this.txtNumeroOrden.Size = new System.Drawing.Size(241, 32);
             this.txtNumeroOrden.TabIndex = 3;
+            this.txtNumeroOrden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroOrden_KeyPress);
             // 
             // label3
             // 
@@ -237,10 +241,10 @@
             this.dgvTFC.Location = new System.Drawing.Point(40, 155);
             this.dgvTFC.Name = "dgvTFC";
             this.dgvTFC.RowHeadersWidth = 62;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTFC.RowTemplate.Height = 28;
             this.dgvTFC.Size = new System.Drawing.Size(560, 224);
             this.dgvTFC.TabIndex = 0;

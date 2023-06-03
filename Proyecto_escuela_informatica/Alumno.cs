@@ -171,7 +171,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Alumno Where (" + cboAlumno.Text + ") Like ('" + txtBuscar.Text + "')";
+                string query = "Select * From Alumno Where (" + cboAlumno.Text + ") Like ('%" + txtBuscar.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -584,6 +584,37 @@ namespace Proyecto_escuela_informatica
             {
                 txtNumeroOrden.Text = dgvTFC.SelectedCells[0].Value.ToString();
                 MessageBox.Show("TFC Seleccionado");
+            }
+        }
+
+        private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void txtCI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32) && (e.KeyChar <= 47) || (e.KeyChar >= 58) && (e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo numeros y letras", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 33) && (e.KeyChar <= 64) || (e.KeyChar >= 91) && (e.KeyChar <= 96) || (e.KeyChar >= 123) && (e.KeyChar <= 255))
+            {
+                MessageBox.Show("Caracter no permitido", "aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                e.Handled = true;
+                return;
             }
         }
     }

@@ -91,9 +91,11 @@
             this.TxtNumeroGrupo.AllowDrop = true;
             this.TxtNumeroGrupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNumeroGrupo.Location = new System.Drawing.Point(330, 54);
+            this.TxtNumeroGrupo.MaxLength = 10;
             this.TxtNumeroGrupo.Name = "TxtNumeroGrupo";
             this.TxtNumeroGrupo.Size = new System.Drawing.Size(235, 32);
             this.TxtNumeroGrupo.TabIndex = 3;
+            this.TxtNumeroGrupo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumeroGrupo_KeyPress);
             // 
             // txtNombre
             // 
@@ -102,6 +104,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(235, 32);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtNumeroComponentes
             // 
@@ -222,9 +225,9 @@
             // BtnSalir
             // 
             this.BtnSalir.Image = global::Proyecto_escuela_informatica.Properties.Resources.regreso__2_;
-            this.BtnSalir.Location = new System.Drawing.Point(947, 471);
+            this.BtnSalir.Location = new System.Drawing.Point(915, 468);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(95, 69);
+            this.BtnSalir.Size = new System.Drawing.Size(95, 58);
             this.BtnSalir.TabIndex = 14;
             this.BtnSalir.UseVisualStyleBackColor = true;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
