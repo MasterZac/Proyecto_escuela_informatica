@@ -80,6 +80,8 @@ namespace Proyecto_escuela_informatica
 
         private void InsertDatos()
         {
+            bool aux = false;
+            int filas_afectadas = 0;
             try
             {
                 DataTable dataTable = (DataTable)dgvCargar.DataSource;
@@ -105,13 +107,25 @@ namespace Proyecto_escuela_informatica
                         cmd.Parameters.AddWithValue("@Lugar_examen", lugarExamen);
                         cmd.Parameters.AddWithValue("@Numero_componentes", numeroComponentes);
                         cmd.Parameters.AddWithValue("@Estatus", Estatus);
-                        cmd.ExecuteNonQuery();
+                        filas_afectadas = cmd.ExecuteNonQuery();
+                        if (filas_afectadas  > 0)
+                        {
+                            aux = true;
+                        }
                     }
                     else
                     {
                         int rowIndex = dataTable.Rows.IndexOf(row);
                         MessageBox.Show($"La fila {rowIndex + 1} del DataGridView ya existe en la tabla de la base de datos.");
                     }
+                }
+                if (aux == true)
+                {
+                    MessageBox.Show("Se insertaron " + filas_afectadas +" filas");
+                }
+                else
+                {
+                    MessageBox.Show("No se realizo ninguna inserción");
                 }
             }
             catch (Exception ex)
@@ -164,7 +178,7 @@ namespace Proyecto_escuela_informatica
             {
                 MessageBox.Show("Error al insertar los datos en SQL Server: " + ex.Message);
             }
-            MessageBox.Show("Datos insertados correctamente en SQL Server.");
+            
         }
     }
 }
