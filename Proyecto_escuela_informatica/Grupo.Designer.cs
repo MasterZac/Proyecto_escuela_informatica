@@ -196,7 +196,8 @@
             this.cboConsultaPor.Items.AddRange(new object[] {
             "Numero_grupo",
             "Nombre",
-            "Numero_componentes"});
+            "Numero_componentes",
+            "Estatus"});
             this.cboConsultaPor.Location = new System.Drawing.Point(127, 298);
             this.cboConsultaPor.Name = "cboConsultaPor";
             this.cboConsultaPor.Size = new System.Drawing.Size(171, 33);

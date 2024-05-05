@@ -242,7 +242,7 @@ namespace Proyecto_escuela_informatica
                 Numero_grupo.Value = txtNumeroGrupo.Text;
                 cmd.Parameters.Add(Numero_grupo);
 
-                SqlParameter CI_profesor = new SqlParameter("@CI_profesor", SqlDbType.VarChar, 50);
+                SqlParameter CI_profesor = new SqlParameter("@CI_profesor", SqlDbType.VarChar, 5);
                 CI_profesor.Value = txtCIProfesor.Text;
                 cmd.Parameters.Add(CI_profesor);
 
@@ -358,17 +358,13 @@ namespace Proyecto_escuela_informatica
                     Numero_grupo.Value = txtNumeroGrupo.Text;
                     cmd.Parameters.Add(Numero_grupo);
 
-                    SqlParameter CI_profesor = new SqlParameter("@CI_profesor", SqlDbType.VarChar, 50);
+                    SqlParameter CI_profesor = new SqlParameter("@CI_profesor", SqlDbType.VarChar, 5);
                     CI_profesor.Value = txtCIProfesor.Text;
                     cmd.Parameters.Add(CI_profesor);
 
                     SqlParameter Numero_orden = new SqlParameter("@Numero_orden", SqlDbType.Char, 10);
                     Numero_orden.Value = txtNumeroOrden.Text;
                     cmd.Parameters.Add(Numero_orden);
-
-                    SqlParameter Estatus = new SqlParameter("@Estatus", SqlDbType.VarChar, 50);
-                    Estatus.Value = txtEstatus.Text;
-                    cmd.Parameters.Add(Estatus);
 
                     cmd.ExecuteNonQuery();
                     cargar.DgvAlumno(dgvAlumno);
@@ -453,7 +449,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Grupo Where (" + cboGrupo.Text + ") Like ('" + txtBuscarGrupo.Text + "')";
+                string query = "Select * From Grupo Where (" + cboGrupo.Text + ") Like ('%" + txtBuscarGrupo.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -474,7 +470,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From Profesor Where (" + cboProfesor.Text + ") Like ('" + txtBuscarProfesor.Text + "')";
+                string query = "Select * From Profesor Where (" + cboProfesor.Text + ") Like ('%" + txtBuscarProfesor.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -495,7 +491,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From TFC Where (" + cboTFC.Text + ") Like ('" + txtBuscarTFC.Text + "')";
+                string query = "Select * From TFC Where (" + cboTFC.Text + ") Like ('%" + txtBuscarTFC.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);

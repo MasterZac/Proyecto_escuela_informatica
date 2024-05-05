@@ -45,7 +45,7 @@ namespace Proyecto_escuela_informatica
         public bool ValidarCampos()
         {
             bool aux = false;
-            if (TxtNumeroGrupo.Text == "" || txtNombre.Text == "" || txtNumeroComponentes.Value == 0 || txtEstatus.Text == "")
+            if (TxtNumeroGrupo.Text == string.Empty|| txtNombre.Text == string.Empty || txtNumeroComponentes.Value == 0)
             {
                 aux = true;
             }
@@ -138,6 +138,7 @@ namespace Proyecto_escuela_informatica
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            int filas_afectadas = 0;
             if (ValidarCampos())
             {
                 MessageBox.Show("Los campos estan vacios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,25 +169,29 @@ namespace Proyecto_escuela_informatica
                 Numero_componentes.Value = txtNumeroComponentes.Value;
                 cmd.Parameters.Add(Numero_componentes);
 
-                cmd.ExecuteNonQuery();
-                
+                filas_afectadas = cmd.ExecuteNonQuery();
+                if (filas_afectadas > 0)
+                {
+                    Limpiar();
+                    cargar.DgvGrupo(dgvGrupo);
+                    MessageBox.Show("¡Grupo agregado!");
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Erro al agregar el grupo: " + ex.Message);
             }
             finally
             {
-                Limpiar();
-                MessageBox.Show("¡Grupo agregado!");
-                cargar.DgvGrupo(dgvGrupo);
+             
                 conexionDB.CerrarConexion(conexion);
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+            int filas_afectadas = 0;
             if (TxtNumeroGrupo.Text == "")
             {
                 MessageBox.Show("Ingrese el Numero del grupo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -218,16 +223,19 @@ namespace Proyecto_escuela_informatica
                     Estatus.Value = txtEstatus.Text;
                     cmd.Parameters.Add(Estatus);
 
-                    cmd.ExecuteNonQuery();
-                    cargar.DgvGrupo(dgvGrupo);
-                    Limpiar();
-                    MessageBox.Show("Grupo habilitado o Deshabilitado");
+                    filas_afectadas = cmd.ExecuteNonQuery();
 
+                    if (filas_afectadas > 0)
+                    {
+                        cargar.DgvGrupo(dgvGrupo);
+                        Limpiar();
+                        MessageBox.Show("Grupo habilitado o Deshabilitado");
+                    }
                 }
                 catch (SqlException ex) 
                 {
-                    MessageBox.Show(ex.Message);
-
+                    Limpiar();
+                    MessageBox.Show("Error al habilitar o deshabilidar el grupo: " + ex.Message);
                 }
                 finally
                 {

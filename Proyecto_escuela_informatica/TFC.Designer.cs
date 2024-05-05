@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.txtEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstatus.Location = new System.Drawing.Point(234, 286);
             this.txtEstatus.Name = "txtEstatus";
+            this.txtEstatus.ReadOnly = true;
             this.txtEstatus.Size = new System.Drawing.Size(175, 32);
             this.txtEstatus.TabIndex = 11;
             // 
@@ -241,10 +242,10 @@
             this.dgvTFC.Location = new System.Drawing.Point(40, 155);
             this.dgvTFC.Name = "dgvTFC";
             this.dgvTFC.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvTFC.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTFC.RowTemplate.Height = 28;
             this.dgvTFC.Size = new System.Drawing.Size(560, 224);
             this.dgvTFC.TabIndex = 0;

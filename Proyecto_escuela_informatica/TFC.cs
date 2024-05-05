@@ -41,7 +41,7 @@ namespace Proyecto_escuela_informatica
             try
             {
                 conexion = conexionDB.AbrirConexion();
-                string query = "Select * From TFC (" + cboTFC.Text + ") like ('%" + txtBuscar.Text + "%')";
+                string query = "Select * From TFC Where (" + cboTFC.Text + ") Like ('" + txtBuscar.Text + "%')";
                 da = new SqlDataAdapter(query, conexion);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -338,7 +338,7 @@ namespace Proyecto_escuela_informatica
         {
             if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
             {
-                MessageBox.Show("Solo numeros, sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Solo numeros, sin espacios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Handled = true;
                 return;
             }

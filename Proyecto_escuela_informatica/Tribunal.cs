@@ -224,7 +224,7 @@ namespace Proyecto_escuela_informatica
                     cmd.ExecuteNonQuery();
                     Limpiar();
                     cargar.DgvTribunal(dgvTribunal);
-                    MessageBox.Show("Tribunal habilitado/deshabilitado");
+                    MessageBox.Show("Tribunal habilitado o deshabilitado");
                 }
                 catch (Exception ex)
                 {
