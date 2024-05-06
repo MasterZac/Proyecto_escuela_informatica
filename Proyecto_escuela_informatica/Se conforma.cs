@@ -31,7 +31,6 @@ namespace Proyecto_escuela_informatica
             CargarDgvProfesor();
             CargarTribunal();
             CargarDgvSeConforma();
-            
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
